@@ -29,6 +29,11 @@ db.on('connected', () => console.log('mongo connected: ', MONGODB_URI))
 db.on('disconnected', () => console.log('mongo disconnected'))
 
 //********************
+//**** Controllers ***
+//********************
+const usersController = require('./controllers/users_controller.js')
+
+//********************
 //**** Middleware ****
 //********************
 app.use(
@@ -48,6 +53,7 @@ app.use(express.json())
 //use method override
 // allow POST, PUT and DELETE from a form
 app.use(methodOverride('_method'))
+app.use('/users',usersController)
 
 //********************
 //****** Routes ******
