@@ -18,8 +18,42 @@ main {
     margin: 0 5%;
 }
 
-img {
+h1 {
+    text-transform: capitalize;
+}
+
+/****** pokemon/index card formatting ******/
+.cardBox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
     max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: .5em;
+    border: 1px solid var(--orange);
+    border-radius: .5rem;
+}
+
+.card-img-top {
+    padding: .5em
+}
+
+.card-body {
+    background: var(--gold);
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+
+.card-title {
+    text-transform: capitalize;
+}
+
+.card-body .tagBox {
+    justify-content: space-around;
 }
 
 .tagBox {

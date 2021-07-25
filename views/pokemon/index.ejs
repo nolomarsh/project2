@@ -7,13 +7,21 @@
     </head>
     <body>
         <h1>All Pokemon</h1>
-        <% for (let pokemon of allPokemon) { %>
-            <div class="card">
-                <a href="/pokemon/<%=pokemon._id%>">
-                    <img class="card-img-top" src="/images/<%=pokemon.name%>/<%=pokemon.name%>.png" alt="<%=pokemon.name%>">
-                </a>
-                <h3 class="card-title"><%=pokemon.name%></h3>
-            </div>
-        <% } %>
+        <div class="cardBox">
+            <% for (let pokemon of allPokemon) { %>
+                <div class="card">
+                    <a href="/pokemon/<%=pokemon._id%>">
+                        <img class="card-img-top" src="/images/<%=pokemon.name%>/<%=pokemon.name%>.png" alt="<%=pokemon.name%>">
+                    </a>
+                    <div class="card-body">
+                        <h3 class="card-title"><%=pokemon.name%></h3>
+                        <div class="tagBox">
+                            <p class="tag-m"><%=pokemon.range%></p>
+                            <p class="tag-m"><%=pokemon.role%></p>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
     </body>
 </html>
