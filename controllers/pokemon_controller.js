@@ -5,7 +5,7 @@ const seed = require('../models/pokemonSeed.js')
 
 pokemon.get('/', (req,res) => {
     Pokemon.find({}, (error, pokemon) => {
-        res.render('/pokemon/index.ejs', {
+        res.render('pokemon/index.ejs', {
             allPokemon: pokemon
         })
     })

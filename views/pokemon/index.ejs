@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <%-include('../partials/head.ejs')%>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>All Pokemon</h1>
+        <% for (let pokemon of allPokemon) { %>
+            <div class="card">
+                <img class="card-img-top" src="<%=pokemon.img%>" alt="<%=pokemon.name%>">
+                <h3 class="card-title"><%=pokemon.name%></h3>
+            </div>
+        <% } %>
+    </body>
+</html>

@@ -25,14 +25,14 @@ const pokeSchema = new Schema({
                 name: String,
                 img: String,
                 cooldown: Number,
-                type: String,
+                moveType: String,
                 desc: String,
             },
             choice1: {
                 name: String,
                 img: String,
                 cooldown: Number,
-                type: String,
+                moveType: String,
                 desc: String,
                 upgrade: String,
             },
@@ -40,7 +40,7 @@ const pokeSchema = new Schema({
                 name: String,
                 img: String,
                 cooldown: Number,
-                type: String,
+                moveType: String,
                 desc: String,
                 upgrade: String,
             }
@@ -50,14 +50,14 @@ const pokeSchema = new Schema({
                 name: String,
                 img: String,
                 cooldown: Number,
-                type: String,
+                moveType: String,
                 desc: String,
             },
             choice1: {
                 name: String,
                 img: String,
                 cooldown: Number,
-                type: String,
+                moveType: String,
                 desc: String,
                 upgrade: String,
             },
@@ -65,7 +65,7 @@ const pokeSchema = new Schema({
                 name: String,
                 img: String,
                 cooldown: Number,
-                type: String,
+                moveType: String,
                 desc: String,
                 upgrade: String,
             }
@@ -73,7 +73,7 @@ const pokeSchema = new Schema({
         unite: {
             name: String,
             img: String,
-            type: String,
+            moveType: String,
             desc: String,
         }
     }
