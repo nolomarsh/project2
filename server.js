@@ -18,9 +18,7 @@ const PORT = process.env.PORT || 3003
 //********************
 // How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI
-// Connect to Mongo &
-// Fix Depreciation Warnings from Mongoose
-// May or may not need these depending on your Mongoose version
+// Connect to Mongo & fix depreciation warnings from Mongoose
 mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
 )
 // Error / success
@@ -32,6 +30,7 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 //**** Controllers ***
 //********************
 const usersController = require('./controllers/users_controller.js')
+const pokemonController = require('./controllers/pokemon_controller.js')
 
 //********************
 //**** Middleware ****
@@ -54,6 +53,7 @@ app.use(express.json())
 // allow POST, PUT and DELETE from a form
 app.use(methodOverride('_method'))
 app.use('/users',usersController)
+app.use('/pokemon',pokemonController)
 
 //********************
 //****** Routes ******
