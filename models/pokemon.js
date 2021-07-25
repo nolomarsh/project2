@@ -3,13 +3,12 @@ const Schema = mongoose.Schema
 
 const pokeSchema = new Schema({
     name: String,
-    img: String,
     range: String,
     role: String,
+    numEvolutions: Number,
     preEvolutions: [
         {
             name: String,
-            img: String,
             evolveLv: Number,
         }
     ],
@@ -30,7 +29,6 @@ const pokeSchema = new Schema({
         primary: {
             start: {
                 name: String,
-                img: String,
                 cooldown: Number,
                 moveType: String,
                 desc: String,
@@ -38,7 +36,6 @@ const pokeSchema = new Schema({
             choiceLv: Number,
             choice1: {
                 name: String,
-                img: String,
                 cooldown: Number,
                 moveType: String,
                 desc: String,
@@ -46,7 +43,6 @@ const pokeSchema = new Schema({
             },
             choice2: {
                 name: String,
-                img: String,
                 cooldown: Number,
                 moveType: String,
                 desc: String,
@@ -56,7 +52,6 @@ const pokeSchema = new Schema({
         secondary: {
             start: {
                 name: String,
-                img: String,
                 cooldown: Number,
                 moveType: String,
                 desc: String,
@@ -64,7 +59,6 @@ const pokeSchema = new Schema({
             choiceLv: Number,
             choice1: {
                 name: String,
-                img: String,
                 cooldown: Number,
                 moveType: String,
                 desc: String,
@@ -72,7 +66,6 @@ const pokeSchema = new Schema({
             },
             choice2: {
                 name: String,
-                img: String,
                 cooldown: Number,
                 moveType: String,
                 desc: String,
@@ -81,9 +74,9 @@ const pokeSchema = new Schema({
         },
         unite: {
             name: String,
-            img: String,
             moveType: String,
             desc: String,
+            level: Number
         }
     }
 })
