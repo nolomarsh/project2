@@ -6,6 +6,13 @@ const pokeSchema = new Schema({
     img: String,
     range: String,
     role: String,
+    preEvolutions: [
+        {
+            name: String,
+            img: String,
+            evolveLv: Number,
+        }
+    ],
     stats: {
         offense: {type:Number, min:0, max:5},
         endurance: {type:Number, min:0, max:5},
@@ -28,6 +35,7 @@ const pokeSchema = new Schema({
                 moveType: String,
                 desc: String,
             },
+            choiceLv: Number,
             choice1: {
                 name: String,
                 img: String,
@@ -53,6 +61,7 @@ const pokeSchema = new Schema({
                 moveType: String,
                 desc: String,
             },
+            choiceLv: Number,
             choice1: {
                 name: String,
                 img: String,

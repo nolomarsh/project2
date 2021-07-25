@@ -9,7 +9,9 @@
         <h1>All Pokemon</h1>
         <% for (let pokemon of allPokemon) { %>
             <div class="card">
-                <img class="card-img-top" src="<%=pokemon.img%>" alt="<%=pokemon.name%>">
+                <a href="/pokemon/<%=pokemon._id%>">
+                    <img class="card-img-top" src="<%=pokemon.img%>" alt="<%=pokemon.name%>">
+                </a>
                 <h3 class="card-title"><%=pokemon.name%></h3>
             </div>
         <% } %>

@@ -6,3 +6,11 @@ body {
 img {
     max-width: 200px;
 }
+
+.tagBox {
+    display: flex;
+}
+
+.moveHeader > img {
+    width: 50px;
+}
