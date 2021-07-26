@@ -14,6 +14,7 @@
     --black: #220a3d
 }
 
+/****** General formatting ******/
 * {
     box-sizing: border-box;
     margin: 0;
@@ -22,6 +23,16 @@
 
 body {
     background: #ddd;
+}
+
+main {
+    width: 90%;
+    margin: 0 5%;
+}
+
+h1 {
+    text-transform: capitalize;
+    text-align: center;
 }
 
 /****** Nav bar formatting ******/
@@ -43,14 +54,30 @@ nav {
     margin: .25rem;
 }
 
-main {
-    width: 90%;
-    margin: 0 5%;
+/****** login/signup formatting ******/
+.userForm {
+    width: 60%;
+    margin: 1rem 20%;
+    display: flex;
+    flex-direction: column;
+    background: var(--pastelOrange);
+    padding: 1rem;
+    border-radius: 25px;
 }
 
-h1 {
-    text-transform: capitalize;
-    text-align: center;
+.userForm input {
+    border: 1px solid var(--darkPurple);
+    border-radius: .5rem;
+    padding: .25rem;
+}
+
+.userForm input:not([type='submit']) {
+    margin-bottom: .5rem;
+}
+
+.userForm input[type='submit'] {
+    background: var(--purple);
+    color: whitesmoke
 }
 
 /****** pokemon/index card formatting ******/

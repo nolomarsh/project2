@@ -3,7 +3,7 @@
     <% if (currentUser) { %>
         <p>Welcome <%=currentUser.username%></p>
             <form action="/sessions?_method=DELETE" method="post">
-                <input type="submit" value="Log Out" class="btn btn-danger">
+                <input type="submit" value="Log Out" class="btn btn-primary">
             </form>
     <% } else { %>
         <a class='btn btn-primary' href="/users/new">Sign Up</a>
