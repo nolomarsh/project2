@@ -189,12 +189,11 @@ nav {
 
 /****** evoContainer and statsTable formatting ******/
 .evoContainer {
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 1.5rem 0;
-    background: var(--powderBlue);
     padding: 2.5rem;
     border: 1px solid var(--darkBlue);
     border-radius: 25px;
@@ -202,9 +201,14 @@ nav {
 }
 
 .evoContainer > img {
-    width: 25%;
-    margin: 0 1%;
+    /* width: 25%; */
+    max-width: 200px;
     filter: drop-shadow(5px 5px 1px rgba(0, 0, 0, .2))
+}
+
+.evoContainer > span {
+    width: 75px;
+    text-align: center;
 }
 
 .statsTable {

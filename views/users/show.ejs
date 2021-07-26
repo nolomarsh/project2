@@ -10,7 +10,29 @@
             <%-include('../partials/nav.ejs')%>
         </nav>
         <main>
-            <h1>Welcome, <%=currentUser.username%></h1>
+            <h1>Welcome, <%=user.username%></h1>
+            <h2>Favorite Pokemon</h2>
+            <div class="cardBox">
+                <% for (let pokemon of allPokemon) {
+                    if(user.favePokemon.includes(pokemon.name)) {%>
+                        <div class="card">
+                            <a class="<%=pokemon.role%>Card" href="/pokemon/<%=pokemon._id%>">
+                                <img class="card-img-top" src="/images/<%=pokemon.name%>/<%=pokemon.name%>.png" alt="<%=pokemon.name%>">
+                            </a>
+                            <div class="card-body">
+                                <h3 class="card-title"><%=pokemon.name%></h3>
+                                <!-- <div class="tagBox">
+                                    <p class="tag-m"><%=pokemon.range%></p>
+                                    <p class="tag-m"><%=pokemon.role%></p>
+                                </div> -->
+                            </div>
+                        </div>
+                    <% }
+                } %>
+            </div>
+            <form action="/users/<%=user._id%>?_method=DELETE" method="post">
+                <input type="submit" value="Delete Account">
+            </form>
         </main>
     </body>
 </html>

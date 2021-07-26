@@ -10,7 +10,7 @@
             <%-include('../partials/nav.ejs')%>
         </nav>
         <main>
-            <div class="evoContainer">
+            <div class="evoContainer <%=pokemon.role%>Card">
                 <% for (let stage of pokemon.preEvolutions) { %>
                     <img src="/images/<%=pokemon.name%>/<%=stage.name%>.png" alt="">
                     <span>>Level <%=stage.evolveLv%>></span>
@@ -22,6 +22,18 @@
                 <p class="tag-m"><%=pokemon.range%></p>
                 <p class="tag-m"><%=pokemon.role%></p>
             </div>
+            <% if (currentUser) { %>
+                <form action="/users/favorite/<%=pokemon._id%>" method="post">
+                    <input type="text" name="userId" value="<%=currentUser._id%>" hidden>
+                    <input type="submit" name="" value=
+                        <% if (!currentUser.favePokemon.includes(pokemon)) { %>
+                            "Favorite"
+                        <% } else { %>
+                            "Unfavorite"
+                        <% } %>
+                    >
+                </form>
+            <% } %>
             <div class="statsTable">
                 <h3 class="statsTitle">Stats</h3>
                 <% for (let stat of ['offense','endurance','mobility','scoring','support']) { %>
@@ -159,5 +171,10 @@
                 </div>
             </div>
         </main>
+        <script type="text/javascript">
+            // $('#faveBtn').click(() => {
+            //     console.log(currentUser);
+            // })
+        </script>
     </body>
 </html>
