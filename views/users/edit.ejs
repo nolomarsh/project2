@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <%-include('../partials/head.ejs')%>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <nav>
+            <%-include('../partials/nav.ejs')%>
+        </nav>
+        <main>
+            <h1>Edit Profile</h1>
+            <form class="userForm" action="/users/<%=currentUser._id%>?_method=PUT" method="post">
+                <label for="username">Username: </label>
+                <input type="text" name="username" id="username" value=<%=currentUser.username%>>
+                <input type="password" name="password" id="password" value=<%=currentUser.password%> hidden>
+                <label for="firstName">First Name:</label>
+                <input type="text" name="firstName" id="firstName" value=<%=currentUser.firstName%>>
+                <label for="lastName">Last Name:</label>
+                <input type="text" name="lastName" id="lastName" value=<%=currentUser.lastName%>>
+                <label for="pronouns">Pronouns: </label>
+                <input type="text" name="pronouns" id="pronouns" value=<%=currentUser.pronouns%>>
+                <label for="faveRole">Favorite Role: </label>
+                <select name="faveRole" id="faveRole">
+                    <%for (let role of ['all-rounder','attacker','defender','speedster','supporter']) { %>
+                        <option value=<%=role%>
+                            <% if (currentUser.faveRole === role) { %>
+                                selected="selected"
+                            <% } %>
+                            ><%=role%></option>
+                    <% } %>
+                    <!-- <option value="all-rounder">All-Rounder</option>
+                    <option value="attacker">Attacker</option>
+                    <option value="defender">Defender</option>
+                    <option value="speedster">Speedster</option>
+                    <option value="supporter">Supporter</option> -->
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+            <form action="/users/<%=currentUser._id%>?_method=DELETE" method="post">
+                <input type="submit" value="Delete Account">
+            </form>
+        </main>
+    </body>
+</html>

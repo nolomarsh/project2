@@ -4,7 +4,12 @@ const users = express.Router()
 const User = require('../models/users.js')
 const Pokemon = require('../models/pokemon.js')
 
-
+//Index
+users.get('/', (req,res) => {
+    res.render('users/index.ejs', {
+        currentUser: req.session.currentUser
+    })
+})
 
 //New
 users.get('/new', (req,res) => {
@@ -52,6 +57,23 @@ users.get('/:id', (req,res) => {
     })
 })
 
+//edit
+users.get('/:id/edit', (req,res) => {
+    res.render('users/edit.ejs', {
+        currentUser: req.session.currentUser
+    })
+})
+
+//update
+users.put("/:id", (req,res) => {
+    User.findByIdAndUpdate(req.params.id, req.body, {new:true},(error, updatedUser) => {
+        req.session.currentUser = updatedUser
+        res.redirect('/users/'+req.params.id)
+    })
+})
+
+
+//delete
 users.delete('/:id', (req,res) => {
     User.findByIdAndRemove(req.params.id, (err, user) => {
         if (err) {

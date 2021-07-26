@@ -95,6 +95,10 @@ nav {
     color: whitesmoke
 }
 
+select {
+    text-transform: capitalize;
+}
+
 /****** pokemon/index card formatting ******/
 .cardBox {
     display: flex;

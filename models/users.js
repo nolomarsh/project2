@@ -5,6 +5,10 @@ const Pokemon = require('./pokemon.js')
 const userSchema = new Schema({
     username: {type:String, required:true, unique:true},
     password: {type:String, required:true},
+    firstName: String,
+    lastName: String,
+    pronouns: String,
+    faveRole: String,
     favePokemon: [String],
     friendIds: [String]
 })

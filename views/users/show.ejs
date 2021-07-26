@@ -30,9 +30,7 @@
                     <% }
                 } %>
             </div>
-            <form action="/users/<%=currentUser._id%>?_method=DELETE" method="post">
-                <input type="submit" value="Delete Account">
-            </form>
+            <a href="./<%=currentUser._id%>/edit">Edit Profile</a>
         </main>
     </body>
 </html>
