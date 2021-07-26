@@ -1,4 +1,5 @@
 :root {
+    --lightPurple: #7b21e9;
     --purple: #6523b6;
     --darkPurple: #4a1885;
     --orange: #e45b04;
@@ -19,6 +20,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Exo 2', sans-serif;
 }
 
 body {
@@ -28,6 +30,9 @@ body {
 main {
     width: 90%;
     margin: 0 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -38,11 +43,21 @@ h1 {
 /****** Nav bar formatting ******/
 nav {
     background: var(--darkPurple);
+    border-bottom: 1px solid var(--black);
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
-    padding: .5rem
+    padding: .5rem;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.btn-primary {
+    background-color: var(--orange);
+    border-color: var(--orange);
+    /* color: black; */
 }
 
 .btnBox {
@@ -84,6 +99,7 @@ nav {
 .cardBox {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .card {
@@ -96,7 +112,8 @@ nav {
     border: 3px solid var(--black);
     border-radius: calc(.5rem + 2px);
     transition: .1s;
-    background: var(--black)
+    background: var(--black);
+    box-shadow: 1px 1px 3px black
 }
 
 .card:hover {
@@ -163,17 +180,64 @@ nav {
     text-transform: capitalize;
     font-size: .75em;
     vertical-align: middle;
+    border: 1px solid var(--black)
 }
 
 .tag-m {
     font-size: 1em;
 }
 
+/****** evoContainer and statsTable formatting ******/
+.evoContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+    background: var(--powderBlue);
+    padding: 2.5rem;
+    border: 1px solid var(--darkBlue);
+    border-radius: 25px;
+    box-shadow: 1px 1px 3px var(--black)
+}
+
+.evoContainer > img {
+    width: 25%;
+    margin: 0 1%;
+    filter: drop-shadow(5px 5px 1px rgba(0, 0, 0, .2))
+}
+
+.statsTable {
+    font-size: 1.25rem;
+    background: var(--lightPurple);
+    padding: 1rem;
+    color: whitesmoke;
+    border: 1px solid var(--darkPurple);
+    border-radius: 15px;
+    margin-top: 2rem;
+    box-shadow: 1px 1px 3px var(--black)
+}
+
+.statsTitle {
+    text-align: center;
+}
+
+.fas {
+    color: var(--brightOrange)
+}
+
 /****** moveBox and components ******/
+main > h2,
+main > h3{
+    align-self: flex-start;
+    margin-top: 1em;
+}
 .moveBox {
     margin: 1em 0;
     border: 1px solid var(--black);
     border-radius: 27px;
+    width: 100%;
+    box-shadow: 1px 1px 3px var(--black)
 }
 
 .moveHeader {

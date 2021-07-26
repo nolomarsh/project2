@@ -2,6 +2,7 @@ const express = require('express')
 const pokemon = express.Router()
 const Pokemon = require('../models/pokemon.js')
 const seed = require('../models/pokemonSeed.js')
+const printStars = require('../public/stars.js')
 
 //Index
 pokemon.get('/', (req,res) => {
@@ -43,7 +44,8 @@ pokemon.get('/:id', (req,res) => {
         console.log(pokemon.name)
         res.render('pokemon/show.ejs', {
             pokemon: pokemon,
-            currentUser: req.session.currentUser
+            currentUser: req.session.currentUser,
+            printStars: printStars
         })
     })
 })

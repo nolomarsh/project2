@@ -10,22 +10,37 @@
             <%-include('../partials/nav.ejs')%>
         </nav>
         <main>
+            <div class="evoContainer">
+                <% for (let stage of pokemon.preEvolutions) { %>
+                    <img src="/images/<%=pokemon.name%>/<%=stage.name%>.png" alt="">
+                    <span>>Level <%=stage.evolveLv%>></span>
+                <% } %>
+                <img src="/images/<%=pokemon.name%>/<%=pokemon.name%>.png" alt="<%=pokemon.name%>">
+            </div>
             <h1><%=pokemon.name%></h1>
-            <% for (let stage of pokemon.preEvolutions) { %>
-                <img src="/images/<%=pokemon.name%>/<%=stage.name%>.png" alt="">
-            <% } %>
-            <img src="/images/<%=pokemon.name%>/<%=pokemon.name%>.png" alt="<%=pokemon.name%>">
             <div class="tagBox">
                 <p class="tag-m"><%=pokemon.range%></p>
                 <p class="tag-m"><%=pokemon.role%></p>
             </div>
             <div class="statsTable">
-                <p>Offense: <%=pokemon.stats.offense%>/5</p>
-                <p>Endurance: <%=pokemon.stats.endurance%>/5</p>
-                <p>Mobility: <%=pokemon.stats.mobility%>/5</p>
-                <p>Scoring: <%=pokemon.stats.scoring%>/5</p>
-                <p>Support: <%=pokemon.stats.support%>/5</p>
+                <h3 class="statsTitle">Stats</h3>
+                <% for (let stat of ['offense','endurance','mobility','scoring','support']) { %>
+                    <div class="statLine">
+                        <span style="text-transform:capitalize"><%=stat%>: </span>
+                        <% let num = pokemon.stats[stat];
+                            while (num > 0) {
+                                if (num >= 1) { %>
+                                    <i class="fas fa-star"></i>
+                                <% num--
+                                } else if (num === 0.5) { %>
+                                    <i class="fas fa-star-half"></i>
+                                <% num--
+                                }
+                            } %>
+                    </div>
+                <% } %>
             </div>
+
             <h2>Moves</h2>
             <div class="moveBox">
                 <div class="moveHeader">
@@ -144,6 +159,5 @@
                 </div>
             </div>
         </main>
-
     </body>
 </html>

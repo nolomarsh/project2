@@ -1,7 +1,13 @@
 <h1>Pokemon Unite</h1>
 <div class="btnBox">
-    <% if (currentUser) { %>
+    <% if (currentUser) {%>
         <p>Welcome <%=currentUser.username%></p>
+    <% } %>
+</div>
+<div class="btnBox">
+    <a class="btn btn-primary" href="/pokemon">Home</a>
+    <% if (currentUser) { %>
+            <a class='btn btn-primary' href="/users/show">Account</a>
             <form action="/sessions?_method=DELETE" method="post">
                 <input type="submit" value="Log Out" class="btn btn-primary">
             </form>
