@@ -53,9 +53,14 @@ app.use(express.json())
 //use method override
 // allow POST, PUT and DELETE from a form
 app.use(methodOverride('_method'))
+// app.use((req,res,next) => {
+//     console.log(req.session)
+//     next()
+// })
 app.use('/users',usersController)
 app.use('/pokemon',pokemonController)
 app.use('/sessions',sessionsController)
+
 
 //********************
 //****** Routes ******

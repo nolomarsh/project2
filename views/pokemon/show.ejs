@@ -26,7 +26,7 @@
                 <form action="/users/favorite/<%=pokemon._id%>" method="post">
                     <input type="text" name="userId" value="<%=currentUser._id%>" hidden>
                     <input type="submit" name="" value=
-                        <% if (!currentUser.favePokemon.includes(pokemon)) { %>
+                        <% if (!currentUser.favePokemon.includes(pokemon.name)) { %>
                             "Favorite"
                         <% } else { %>
                             "Unfavorite"

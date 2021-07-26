@@ -4,6 +4,8 @@ const users = express.Router()
 const User = require('../models/users.js')
 const Pokemon = require('../models/pokemon.js')
 
+
+
 //New
 users.get('/new', (req,res) => {
     res.render('users/new.ejs', {
@@ -26,8 +28,12 @@ users.post('/favorite/:id', (req,res) => {
         Pokemon.findById(req.params.id,(err,foundMon) => {
             if (!foundUser.favePokemon.includes(foundMon.name)){
                 foundUser.favePokemon.push(foundMon.name)
+            } else {
+                let monIndex = foundUser.favePokemon.indexOf(foundMon.name)
+                foundUser.favePokemon.splice(monIndex,1)
             }
-            foundUser.save((err,data) => {
+            foundUser.save((err,savedUser) => {
+                req.session.currentUser = savedUser
                 res.redirect('/pokemon/'+req.params.id)
             })
         })
@@ -40,7 +46,6 @@ users.get('/:id', (req,res) => {
         Pokemon.find({}, (err, allPokemon) => {
             res.render('users/show.ejs', {
                 currentUser: req.session.currentUser,
-                user: foundUser,
                 allPokemon: allPokemon
             })
         })
