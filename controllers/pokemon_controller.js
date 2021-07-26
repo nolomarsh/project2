@@ -7,7 +7,8 @@ const seed = require('../models/pokemonSeed.js')
 pokemon.get('/', (req,res) => {
     Pokemon.find({}, (error, pokemon) => {
         res.render('pokemon/index.ejs', {
-            allPokemon: pokemon
+            allPokemon: pokemon,
+            currentUser: req.session.currentUser
         })
     })
 })
@@ -42,6 +43,7 @@ pokemon.get('/:id', (req,res) => {
         console.log(pokemon.name)
         res.render('pokemon/show.ejs', {
             pokemon: pokemon,
+            currentUser: req.session.currentUser
         })
     })
 })
@@ -61,7 +63,7 @@ pokemon.put('/:id', (req,res) => {
 // TODO: destroy route
 //destroy
 pokemon.delete('/:id', (req,res) => {
-    
+
 })
 
 module.exports = pokemon

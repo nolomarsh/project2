@@ -31,6 +31,7 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 //********************
 const usersController = require('./controllers/users_controller.js')
 const pokemonController = require('./controllers/pokemon_controller.js')
+const sessionsController = require('./controllers/sessions_controller.js')
 
 //********************
 //**** Middleware ****
@@ -54,6 +55,7 @@ app.use(express.json())
 app.use(methodOverride('_method'))
 app.use('/users',usersController)
 app.use('/pokemon',pokemonController)
+app.use('/sessions',sessionsController)
 
 //********************
 //****** Routes ******

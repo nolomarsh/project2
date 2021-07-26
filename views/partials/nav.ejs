@@ -1,0 +1,12 @@
+<h1>Pokemon Unite</h1>
+<div class="btnBox">
+    <% if (currentUser) { %>
+        <p>Welcome <%=currentUser.username%></p>
+            <form action="/sessions?_method=DELETE" method="post">
+                <input type="submit" value="Log Out" class="btn btn-danger">
+            </form>
+    <% } else { %>
+        <a class='btn btn-primary' href="/users/new">Sign Up</a>
+        <a class='btn btn-primary' href="/sessions/new">Log In</a>
+    <% } %>
+</div>

@@ -1,16 +1,46 @@
 :root {
     --purple: #6523b6;
+    --darkPurple: #4a1885;
     --orange: #e45b04;
+    --brightOrange: #fb7823;
+    --pastelOrange: #ffb22e;
     --gold: #f9c921;
+    --powderBlue: #5a7fff;
+    --darkBlue: #193db5;
+    --cherryRed: #e6050b;
+    --darkRed: #a10606;
+    --brightGreen: #17b527;
+    --darkGreen: #0e7d1a;
+    --black: #220a3d
 }
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background: #ddd;
-    padding: 10px;
+}
+
+/****** Nav bar formatting ******/
+nav {
+    background: var(--darkPurple);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: .5rem
+}
+
+.btnBox {
+    display: flex;
+    align-items: center;
+}
+
+.btnBox > * {
+    margin: .25rem;
 }
 
 main {
@@ -20,6 +50,7 @@ main {
 
 h1 {
     text-transform: capitalize;
+    text-align: center;
 }
 
 /****** pokemon/index card formatting ******/
@@ -29,21 +60,56 @@ h1 {
 }
 
 .card {
+    width: 23%;
     max-width: 200px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: .5em;
-    border: 1px solid var(--orange);
+    margin: .5em 1%;
+    border: 3px solid var(--black);
+    border-radius: calc(.5rem + 2px);
+    transition: .1s;
+    background: var(--black)
+}
+
+.card:hover {
+    transform: scale(1.1)
+}
+
+.card > a {
     border-radius: .5rem;
 }
 
+.supporterCard {
+    background: linear-gradient(45deg,var(--gold),var(--brightOrange))
+}
+
+.speedsterCard {
+    background: linear-gradient(45deg,var(--powderBlue),var(--darkBlue));
+}
+
+.all-rounderCard {
+    background: linear-gradient(45deg,var(--purple),var(--darkPurple))
+}
+
+.attackerCard {
+    background: linear-gradient(45deg,var(--cherryRed),var(--darkRed));
+}
+
+.defenderCard {
+    background: linear-gradient(45deg,var(--brightGreen),var(--darkGreen))
+}
+
 .card-img-top {
-    padding: .5em
+    padding: .25rem;
+    padding-bottom: 0;
+    border-radius: .35rem;
+    filter: drop-shadow(8px 8px 1px rgba(0, 0, 0, .2))
 }
 
 .card-body {
-    background: var(--gold);
+    background: var(--black);
+    color: whitesmoke;
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
 }
@@ -78,7 +144,9 @@ h1 {
 
 /****** moveBox and components ******/
 .moveBox {
-    margin: 1em 0
+    margin: 1em 0;
+    border: 1px solid var(--black);
+    border-radius: 27px;
 }
 
 .moveHeader {
@@ -106,7 +174,7 @@ h1 {
 }
 
 .moveBody {
-    background: #ffb22e;
+    background: var(--pastelOrange);
     padding: .5em;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;

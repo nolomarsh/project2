@@ -6,6 +6,9 @@
         <title></title>
     </head>
     <body>
+        <nav>
+            <%-include('../partials/nav.ejs')%>
+        </nav>
         <main>
             <h1><%=pokemon.name%></h1>
             <% for (let stage of pokemon.preEvolutions) { %>
