@@ -26,6 +26,9 @@
 
 body {
     background: #ddd;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
@@ -53,6 +56,8 @@ nav {
     position: sticky;
     top: 0;
     z-index: 5;
+    box-shadow: 0 1px 2px var(--black);
+    height: 75px;
 }
 
 .btn-primary {
@@ -295,6 +300,12 @@ main > h3{
 .table{
     background: var(--pastelOrange);
     border-radius: 15px;
+    border-bottom: none;
+    box-shadow: 1px 1px 3px var(--black)
+}
+
+thead {
+    border-bottom: 1px solid black;
 }
 
 .table a {
@@ -305,4 +316,24 @@ main > h3{
 
 tr:not(:last-child) {
     border-bottom-color: var(--brightOrange)
+}
+
+tr:last-child *{
+    border-bottom: none;
+}
+
+/****** Footer formatting ******/
+footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--brightOrange);
+    border-top: 1px solid var(--orange);
+    height: 50px;
+    margin-top: auto;
+    padding: 0 .5rem;
+}
+
+.svg {
+    width: 25px;
 }

@@ -21,10 +21,6 @@
                             </a>
                             <div class="card-body">
                                 <h3 class="card-title"><%=pokemon.name%></h3>
-                                <!-- <div class="tagBox">
-                                    <p class="tag-m"><%=pokemon.range%></p>
-                                    <p class="tag-m"><%=pokemon.role%></p>
-                                </div> -->
                             </div>
                         </div>
                     <% }
@@ -34,5 +30,8 @@
                 <a href="./<%=user._id%>/edit">Edit Profile</a>
             <% } %>
         </main>
+        <footer>
+            <%-include('../partials/footer.ejs')%>
+        </footer>
     </body>
 </html>

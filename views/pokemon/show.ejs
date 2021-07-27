@@ -81,7 +81,7 @@
                     <img src="/images/<%=pokemon.name%>/primaryStart.png" alt="">
                     <p><%=pokemon.moves.primary.start.name%></p>
                     <div class="tagBox">
-                        <p><%=pokemon.moves.primary.start.cooldown%>s</p>
+                        <p><i class="fas fa-clock"></i> <%=pokemon.moves.primary.start.cooldown%>s</p>
                         <p><%=pokemon.moves.primary.start.moveType%></p>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                     <img src="/images/<%=pokemon.name%>/secondaryStart.png" alt="">
                     <p><%=pokemon.moves.secondary.start.name%></p>
                     <div class="tagBox">
-                        <p><%=pokemon.moves.secondary.start.cooldown%>s</p>
+                        <p><i class="fas fa-clock"></i> <%=pokemon.moves.secondary.start.cooldown%>s</p>
                         <p><%=pokemon.moves.secondary.start.moveType%></p>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                     <img src="/images/<%=pokemon.name%>/primary1.png" alt="">
                     <p><%=pokemon.moves.primary.choice1.name%></p>
                     <div class="tagBox">
-                        <p><%=pokemon.moves.primary.choice1.cooldown%>s</p>
+                        <p><i class="fas fa-clock"></i> <%=pokemon.moves.primary.choice1.cooldown%>s</p>
                         <p><%=pokemon.moves.primary.choice1.moveType%></p>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                     <img src="/images/<%=pokemon.name%>/primary2.png" alt="">
                     <p><%=pokemon.moves.primary.choice2.name%></p>
                     <div class="tagBox">
-                        <p><%=pokemon.moves.primary.choice2.cooldown%>s</p>
+                        <p><i class="fas fa-clock"></i> <%=pokemon.moves.primary.choice2.cooldown%>s</p>
                         <p><%=pokemon.moves.primary.choice2.moveType%></p>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                     <img src="/images/<%=pokemon.name%>/secondary1.png" alt="">
                     <p><%=pokemon.moves.secondary.choice1.name%></p>
                     <div class="tagBox">
-                        <p><%=pokemon.moves.secondary.choice1.cooldown%>s</p>
+                        <p><i class="fas fa-clock"></i> <%=pokemon.moves.secondary.choice1.cooldown%>s</p>
                         <p class=<%=pokemon.moves.secondary.choice1.moveType%>><%=pokemon.moves.secondary.choice1.moveType%></p>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                     <img src="/images/<%=pokemon.name%>/secondary2.png" alt="">
                     <p><%=pokemon.moves.secondary.choice2.name%></p>
                     <div class="tagBox">
-                        <p><%=pokemon.moves.secondary.choice2.cooldown%>s</p>
+                        <p><i class="fas fa-clock"></i> <%=pokemon.moves.secondary.choice2.cooldown%>s</p>
                         <p class=<%=pokemon.moves.secondary.choice2.moveType%>><%=pokemon.moves.secondary.choice2.moveType%></p>
                     </div>
                 </div>
@@ -171,6 +171,9 @@
                 </div>
             </div>
         </main>
+        <footer>
+            <%-include('../partials/footer.ejs')%>
+        </footer>
         <script type="text/javascript">
             // $('#faveBtn').click(() => {
             //     console.log(currentUser);
