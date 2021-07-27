@@ -49,14 +49,35 @@ users.post('/favorite/:id', (req,res) => {
     })
 })
 
+//add friend
+users.post('/friend/:id', (req,res) => {
+    User.findById(req.body.currentUserId, (error, foundUser) => {
+        User.findById(req.params.id, (error, newFriend) => {
+            if (!foundUser.friendIds.includes(newFriend._id.toString())) {
+                foundUser.friendIds.push(newFriend._id)
+            } else {
+                let friendIndex = foundUser.friendIds.indexOf(newFriend._id.toString())
+                foundUser.friendIds.splice(friendIndex,1)
+            }
+            foundUser.save((error,savedUser) => {
+                req.session.currentUser = savedUser
+                res.redirect('/users/'+req.params.id)
+            })
+        })
+    })
+})
+
 //Show
 users.get('/:id', (req,res) => {
     User.findById(req.params.id, (error, foundUser) => {
-        Pokemon.find({}, (err, allPokemon) => {
-            res.render('users/show.ejs', {
-                currentUser: req.session.currentUser,
-                user: foundUser,
-                allPokemon: allPokemon
+        User.find({_id:{$in:foundUser.friendIds}}, (error, foundFriends) => {
+            Pokemon.find({}, (err, allPokemon) => {
+                res.render('users/show.ejs', {
+                    currentUser: req.session.currentUser,
+                    friends: foundFriends,
+                    user: foundUser,
+                    allPokemon: allPokemon
+                })
             })
         })
     })

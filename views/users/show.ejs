@@ -10,21 +10,48 @@
             <%-include('../partials/nav.ejs')%>
         </nav>
         <main>
-            <h1><%=user.username%></h1>
-            <h2>Favorite Pokemon</h2>
-            <div class="cardBox">
-                <% for (let pokemon of allPokemon) {
-                    if(user.favePokemon.includes(pokemon.name)) {%>
-                        <div class="card">
-                            <a class="<%=pokemon.role%>Card" href="/pokemon/<%=pokemon._id%>">
-                                <img class="card-img-top" src="/images/<%=pokemon.name%>/<%=pokemon.name%>.png" alt="<%=pokemon.name%>">
-                            </a>
-                            <div class="card-body">
-                                <h3 class="card-title"><%=pokemon.name%></h3>
+            <div class="infoContainer">
+                <div class="userInfo">
+                    <h3><%=user.username%></h3>
+                    <p>Name: <%=user.firstName + ' ' + user.lastName%></p>
+                    <p>Pronouns: <%=user.pronouns%></p>
+                    <% if (currentUser) { %>
+                        <% if (user._id.toString() !== currentUser._id.toString()) { %>
+                        <form action="./friend/<%=user._id%>" method="post">
+                            <input name="currentUserId" value="<%=currentUser._id%>" hidden>
+                            <input type="submit" value=
+                                <% if (!currentUser.friendIds.includes(user._id.toString())) { %>
+                                    "Add Friend"
+                                <% } else { %>
+                                    "Unfriend"
+                                <% } %>
+                            >
+                        </form>
+                    <% }} %>
+                </div>
+                <div class="friendsInfo">
+                    <h3>Friends</h3>
+                </div>
+                <div class="squadsInfo">
+                    <h3>Squads</h3>
+                </div>
+            </div>
+            <div class="favesBox">
+                <h2>Favorite Pokemon</h2>
+                <div class="cardBox">
+                    <% for (let pokemon of allPokemon) {
+                        if(user.favePokemon.includes(pokemon.name)) {%>
+                            <div class="card">
+                                <a class="<%=pokemon.role%>Card" href="/pokemon/<%=pokemon._id%>">
+                                    <img class="card-img-top" src="/images/<%=pokemon.name%>/<%=pokemon.name%>.png" alt="<%=pokemon.name%>">
+                                </a>
+                                <div class="card-body">
+                                    <h3 class="card-title"><%=pokemon.name%></h3>
+                                </div>
                             </div>
-                        </div>
-                    <% }
-                } %>
+                        <% }
+                    } %>
+                </div>
             </div>
             <% if (currentUser && currentUser.username === user.username) { %>
                 <a href="./<%=user._id%>/edit">Edit Profile</a>
