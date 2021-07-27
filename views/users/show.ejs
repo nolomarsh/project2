@@ -20,7 +20,7 @@
                         <% if (user._id.toString() !== currentUser._id.toString()) { %>
                         <form action="./friend/<%=user._id%>" method="post">
                             <input name="currentUserId" value="<%=currentUser._id%>" hidden>
-                            <input type="submit" value=
+                            <input class="btn btn-add" type="submit" value=
                                 <% if (!currentUser.friendIds.includes(user._id.toString())) { %>
                                     "Add Friend"
                                 <% } else { %>

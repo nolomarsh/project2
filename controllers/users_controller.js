@@ -31,7 +31,7 @@ users.post('/', (req,res) => {
     })
 })
 
-//add fave
+//add/remove fave
 users.post('/favorite/:id', (req,res) => {
     User.findById(req.body.userId,(error, foundUser) => {
         Pokemon.findById(req.params.id,(err,foundMon) => {
@@ -49,7 +49,7 @@ users.post('/favorite/:id', (req,res) => {
     })
 })
 
-//add friend
+//add/remove friend
 users.post('/friend/:id', (req,res) => {
     User.findById(req.body.currentUserId, (error, foundUser) => {
         User.findById(req.params.id, (error, newFriend) => {
@@ -106,11 +106,20 @@ users.put("/:id", (req,res) => {
 
 //delete
 users.delete('/:id', (req,res) => {
-    User.findByIdAndRemove(req.params.id, (err, user) => {
-        if (err) {
-            console.log(err);
-        }
-        res.redirect('/')
+    User.findByIdAndRemove(req.params.id, (err, removedUser) => {
+        //find users whose friendIds contain the removedUser's id
+        User.find({friendIds: req.params.id}, (err, foundUsers) => {
+            //for each found user, remove the removedUser from their array
+            for (let user of foundUsers) {
+                let friendIndex = user.friendIds.indexOf(req.params.id)
+                user.friendIds.splice(friendIndex,1)
+                user.save()
+            }
+        })
+        //log the now removed user out
+        req.session.destroy(() => {
+            res.redirect('/')
+        })
     })
 })
 

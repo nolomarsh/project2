@@ -342,6 +342,19 @@ tr:last-child *{
     text-align: center;
 }
 
+.btn-add {
+    background-color: var(--lightPurple);
+    border-color: var(--lightPurple);
+    color: whitesmoke;
+    transition: .1s;
+}
+
+.btn-add:hover {
+    background-color: var(--purple);
+    border-color: var(--purple);
+    color: whitesmoke;
+}
+
 .favesBox {
     width: 100%;
 }
