@@ -70,16 +70,21 @@ users.post('/friend/:id', (req,res) => {
 //Show
 users.get('/:id', (req,res) => {
     User.findById(req.params.id, (error, foundUser) => {
-        User.find({_id:{$in:foundUser.friendIds}}, (error, foundFriends) => {
-            Pokemon.find({}, (err, allPokemon) => {
-                res.render('users/show.ejs', {
-                    currentUser: req.session.currentUser,
-                    friends: foundFriends,
-                    user: foundUser,
-                    allPokemon: allPokemon
-                })
+        let friends = []
+        for (let friendId of foundUser.friendIds) {
+            User.findById(friendId, (error, foundFriend) => {
+                friends.push(foundFriend)
+            })
+        }
+        Pokemon.find({}, (err, allPokemon) => {
+            res.render('users/show.ejs', {
+                currentUser: req.session.currentUser,
+                friends: friends,
+                user: foundUser,
+                allPokemon: allPokemon
             })
         })
+
     })
 })
 

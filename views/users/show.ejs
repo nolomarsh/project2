@@ -12,7 +12,8 @@
         <main>
             <div class="infoContainer">
                 <div class="userInfo">
-                    <h3><%=user.username%></h3>
+                    <h3>User Info</h3>
+                    <p>Username: <%=user.username%></p>
                     <p>Name: <%=user.firstName + ' ' + user.lastName%></p>
                     <p>Pronouns: <%=user.pronouns%></p>
                     <% if (currentUser) { %>
@@ -27,10 +28,14 @@
                                 <% } %>
                             >
                         </form>
-                    <% }} %>
+                        <% }
+                    } %>
                 </div>
                 <div class="friendsInfo">
                     <h3>Friends</h3>
+                    <% for (let friend of friends) { %>
+                        <p><%=friend.username%></p>
+                    <% } %>
                 </div>
                 <div class="squadsInfo">
                     <h3>Squads</h3>
