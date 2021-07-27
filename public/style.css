@@ -2,6 +2,7 @@
     --lightPurple: #7b21e9;
     --purple: #6523b6;
     --darkPurple: #4a1885;
+    --darkOrange: #cf5100;
     --orange: #e45b04;
     --brightOrange: #fb7823;
     --pastelOrange: #ffb22e;
@@ -57,7 +58,13 @@ nav {
 .btn-primary {
     background-color: var(--orange);
     border-color: var(--orange);
-    /* color: black; */
+    transition: .1s;
+}
+
+.btn-primary:hover {
+    background-color: var(--darkOrange);
+    border-color: var(--darkOrange);
+    transform: scale(1.1)
 }
 
 .btnBox {
@@ -128,6 +135,29 @@ select {
     border-radius: .5rem;
 }
 
+.card-img-top {
+    padding: .25rem;
+    padding-bottom: 0;
+    border-radius: .35rem;
+    filter: drop-shadow(8px 8px 1px rgba(0, 0, 0, .2))
+}
+
+.card-body {
+    background: var(--black);
+    color: whitesmoke;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+
+.card-title {
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.card-body .tagBox {
+    justify-content: space-around;
+}
+
 .supporterCard {
     background: linear-gradient(45deg,var(--gold),var(--brightOrange))
 }
@@ -146,28 +176,6 @@ select {
 
 .defenderCard {
     background: linear-gradient(45deg,var(--brightGreen),var(--darkGreen))
-}
-
-.card-img-top {
-    padding: .25rem;
-    padding-bottom: 0;
-    border-radius: .35rem;
-    filter: drop-shadow(8px 8px 1px rgba(0, 0, 0, .2))
-}
-
-.card-body {
-    background: var(--black);
-    color: whitesmoke;
-    border-bottom-left-radius: .5rem;
-    border-bottom-right-radius: .5rem;
-}
-
-.card-title {
-    text-transform: capitalize;
-}
-
-.card-body .tagBox {
-    justify-content: space-around;
 }
 
 .tagBox {
@@ -281,4 +289,20 @@ main > h3{
 
 .area {
     color: pink;
+}
+
+/****** Users Table formatting ******/
+.table{
+    background: var(--pastelOrange);
+    border-radius: 15px;
+}
+
+.table a {
+    /* text-decoration: none; */
+    color: inherit;
+    cursor: pointer;
+}
+
+tr:not(:last-child) {
+    border-bottom-color: var(--brightOrange)
 }

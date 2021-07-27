@@ -10,11 +10,11 @@
             <%-include('../partials/nav.ejs')%>
         </nav>
         <main>
-            <h1>Welcome, <%=currentUser.username%></h1>
+            <h1><%=user.username%></h1>
             <h2>Favorite Pokemon</h2>
             <div class="cardBox">
                 <% for (let pokemon of allPokemon) {
-                    if(currentUser.favePokemon.includes(pokemon.name)) {%>
+                    if(user.favePokemon.includes(pokemon.name)) {%>
                         <div class="card">
                             <a class="<%=pokemon.role%>Card" href="/pokemon/<%=pokemon._id%>">
                                 <img class="card-img-top" src="/images/<%=pokemon.name%>/<%=pokemon.name%>.png" alt="<%=pokemon.name%>">
@@ -30,7 +30,9 @@
                     <% }
                 } %>
             </div>
-            <a href="./<%=currentUser._id%>/edit">Edit Profile</a>
+            <% if (currentUser && currentUser.username === user.username) { %>
+                <a href="./<%=user._id%>/edit">Edit Profile</a>
+            <% } %>
         </main>
     </body>
 </html>

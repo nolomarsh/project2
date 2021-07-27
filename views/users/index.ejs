@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <%-include('../partials/head.ejs')%>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <nav>
+            <%-include('../partials/nav.ejs')%>
+        </nav>
+        <main>
+            <h1>All Users</h1>
+            <table class="table">
+                <thead>
+                    <th>Username</th>
+                    <th>Favorite Role</th>
+                </thead>
+                <% for (let user of allUsers) { %>
+                    <tr>
+                        <td><a href="users/<%=user._id%>"><%=user.username%></a></td>
+                        <td><%=user.faveRole%></td>
+                    </tr>
+                <% } %>
+            </table>
+        </main>
+    </body>
+</html>

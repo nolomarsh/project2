@@ -6,9 +6,13 @@ const Pokemon = require('../models/pokemon.js')
 
 //Index
 users.get('/', (req,res) => {
-    res.render('users/index.ejs', {
-        currentUser: req.session.currentUser
+    User.find({}, (error, allUsers) => {
+        res.render('users/index.ejs', {
+            currentUser: req.session.currentUser,
+            allUsers: allUsers
+        })
     })
+
 })
 
 //New
@@ -51,6 +55,7 @@ users.get('/:id', (req,res) => {
         Pokemon.find({}, (err, allPokemon) => {
             res.render('users/show.ejs', {
                 currentUser: req.session.currentUser,
+                user: foundUser,
                 allPokemon: allPokemon
             })
         })

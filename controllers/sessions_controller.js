@@ -19,7 +19,7 @@ sessions.post('/', (req,res) => {
         } else {
             if (bcrypt.compareSync(req.body.password, user.password)) {
                 req.session.currentUser = user
-                res.redirect('/pokemon')
+                res.redirect('/users/'+user._id)
             } else {
                 res.send(`<a href='/sessions/new'>password does not match</a>`)
             }
