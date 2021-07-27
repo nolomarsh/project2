@@ -23,7 +23,6 @@ const pokeSchema = new Schema({
         basic: String,
         passive: {
             name: String,
-            img: String,
             desc: String
         },
         primary: {
