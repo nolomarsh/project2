@@ -10,20 +10,23 @@
             <%-include('../partials/nav.ejs')%>
         </nav>
         <main>
-            <h1>All Pokemon</h1>
+            <h1 style="text-transform:capitalize"><%=filterRole%>s</h1>
             <div class="btnBox">
                 <a class="btn btn-add" href="/pokemon">All Roles</a>
                 <% for (let role of ['attacker','speedster','all-rounder','defender','supporter']) { %>
-                    <a class="btn btn-add" 
+                    <a class="btn btn-add
+                        <% if (filterRole === role) { %>
+                            <%=role%>Card
+                        <% } %>"
                         href="/pokemon/<%=role%>">
                         <p class="caps"><%=role%></p>
                     </a>
                 <% } %>
-                <!-- <a class="btn btn-add" href="/pokemon/attacker">Attacker</a>
-                <a class="btn btn-add" href="/pokemon/speedster">Speedster</a>
-                <a class="btn btn-add" href="/pokemon/all-rounder">All-Rounder</a>
-                <a class="btn btn-add" href="/pokemon/defender">Defender</a>
-                <a class="btn btn-add" href="/pokemon/supporter">Supporter</a> -->
+                <!-- <a class="btn btn-add attackerCard" href="/pokemon/attacker">Attacker</a>
+                <a class="btn btn-add speedsterCard" href="/pokemon/speedster">Speedster</a>
+                <a class="btn btn-add all-rounderCard" href="/pokemon/all-rounder">All-Rounder</a>
+                <a class="btn btn-add defenderCard" href="/pokemon/defender">Defender</a>
+                <a class="btn btn-add supporterCard" href="/pokemon/supporter">Supporter</a> -->
             </div>
             <div class="cardBox">
                 <% for (let pokemon of allPokemon) { %>

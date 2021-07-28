@@ -13,16 +13,15 @@ pokemon.get('/', (req,res) => {
     })
 })
 
-// TODO: new route
-//New
-pokemon.get('/new', (req,res) => {
-
-})
-
-// TODO: create route
-//Create
-pokemon.post('/', (req,res) => {
-
+//Index (filtered)
+pokemon.get('/:role', (req,res) => {
+    Pokemon.find({role: req.params.role}, (error, filteredPokemon) => {
+        res.render('pokemon/indexFilter.ejs', {
+            allPokemon: filteredPokemon,
+            currentUser: req.session.currentUser,
+            filterRole: req.params.role
+        })
+    })
 })
 
 //Seed
@@ -46,24 +45,6 @@ pokemon.get('/:id', (req,res) => {
             currentUser: req.session.currentUser
         })
     })
-})
-
-// TODO: edit route
-//Edit
-pokemon.get('/:id/edit', (req,res) => {
-
-})
-
-// TODO: update route
-//update
-pokemon.put('/:id', (req,res) => {
-
-})
-
-// TODO: destroy route
-//destroy
-pokemon.delete('/:id', (req,res) => {
-
 })
 
 module.exports = pokemon

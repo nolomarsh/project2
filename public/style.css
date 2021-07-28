@@ -1,18 +1,18 @@
 :root {
     --lightPurple: #7b21e9;
     --purple: #6523b6;
-    --darkPurple: #4a1885;
+    --darkPurple: #421479;
     --darkOrange: #cf5100;
     --orange: #e45b04;
     --brightOrange: #fb7823;
     --pastelOrange: #ffb22e;
     --gold: #f9c921;
     --powderBlue: #5a7fff;
-    --darkBlue: #193db5;
+    --darkBlue: #1435a3;
     --cherryRed: #e6050b;
-    --darkRed: #a10606;
+    --darkRed: #820303;
     --brightGreen: #17b527;
-    --darkGreen: #0e7d1a;
+    --darkGreen: #0a6b14;
     --black: #220a3d
 }
 
@@ -42,6 +42,11 @@ main {
 h1 {
     text-transform: capitalize;
     text-align: center;
+}
+
+.caps {
+    text-transform: capitalize;
+    margin: 0;
 }
 
 /****** Nav bar formatting ******/
@@ -172,7 +177,7 @@ select {
 }
 
 .all-rounderCard {
-    background: linear-gradient(45deg,var(--purple),var(--darkPurple))
+    background: linear-gradient(45deg,var(--lightPurple),var(--darkPurple))
 }
 
 .attackerCard {
