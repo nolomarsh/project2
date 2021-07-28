@@ -171,7 +171,7 @@ module.exports = [
             support: 4,
         },
         moves: {
-            basic: "Becomes a boosted attack with every third attack, dealing increaswed damage and throwing opposing Pokemon when it hits.",
+            basic: "Becomes a boosted attack with every third attack, dealing increased damage and throwing opposing Pokemon when it hits.",
             passive: {
                 name: "filter",
                 desc: "Reduces damage reeived by the Pokemon for a short time after it uses a move."
@@ -857,6 +857,398 @@ module.exports = [
                 moveType: "buff",
                 desc: "Has the user go to sleep and begin snoring, dealing damage over time to opposing Pokemon in the area of effect and throwing them. While sleeping, the user becomes immune to hindrances and its HP is continually restored.",
                 level: 10
+            }
+        }
+    },
+    {
+        name: "garchomp",
+        range: "melee",
+        role: "all-rounder",
+        numEvolutions: 3,
+        preEvolutions: [
+            {
+                name: "gible",
+                evolveLv: 6,
+            },
+            {
+                name: "gabite",
+                evolveLv: 10
+            }
+        ],
+        stats: {
+            offense: 3.5,
+            endurance: 3.5,
+            mobility: 2.5,
+            scoring: 2.5,
+            support: 0.5,
+        },
+        moves: {
+            basic: "Becomes a boosted attack with every fifth attack, dealing increased damage and restoring the user's HP. Every time one of the user's basic attacks or moves hits and opposing Pokemon, the user's basic attack speed is increased.",
+            passive: {
+                name: "rough skin",
+                desc: "When the Pokemon is struck by a melee attack, a portion of the damage received is reflected back at the attacker."
+            },
+            primary: {
+                start: {
+                    name: "sand attack",
+                    cooldown: 6,
+                    moveType: "debuff",
+                    desc: "Hurls sand, narrowing the field of vision of opposing Pokemon and decreasing their movement speed for a short time when it hits. This also increases the user's movement speed and basic attack speed.",
+                },
+                choiceLv: 6,
+                choice1: {
+                    name: "dig",
+                    cooldown: 8,
+                    moveType: "dash",
+                    desc: "Has the user burrow underground and move quickly in the designated direction, jumping out when it comes in contact with an opposing Pokemon or when it has traveled the maximum distance. This jump deals damage to opposing Pokemon in the area of effect and throws them.",
+                    upgrade: "Reduces the damage the user receives for a short time after it jumps out of the ground.",
+                },
+                choice2: {
+                    name: "dragon rush",
+                    cooldown: 8,
+                    moveType: "dash",
+                    desc: "Has the user back up to create distance before diving to attack in the designated direction, shoving opposing Pokemon. The user can use Dragon Claw while creating distance at the beginning of this move to create a combo attack.",
+                    upgrade: "Also decreases the movement speed of opposing Pokemon for a short time when they are shoved by this move the maximum distance.",
+                }
+            },
+            secondary: {
+                start: {
+                    name: "bulldoze",
+                    cooldown: 5,
+                    moveType: "area",
+                    desc: "Has the user stomp down on the ground, dealing damage to opposing Pokemon in the area of effect.",
+                },
+                choiceLv: 8,
+                choice1: {
+                    name: "earthquake",
+                    cooldown: 7,
+                    moveType: "area",
+                    desc: "Has the user jump high into the air and crash forcefully to the ground, dealing damage to opposing Pokemon in the area of effect.",
+                    upgrade: "Also decreases the movement speed of opposing Pokemon for a short time if they area in this move's area of effect.",
+                },
+                choice2: {
+                    name: "dragon claw",
+                    cooldown: 5,
+                    moveType: "melee",
+                    desc: "Has the user attack twice in front of itself using its claws. The first attack deals damage to opposing Pokemon and then throws them, the second deals increased damage. After the move ends, the user's basic attack speed is increased for a short time.",
+                    upgrade: "Increases damage dealt by this move.",
+                }
+            },
+            unite: {
+                name: "livid outrage",
+                moveType: "melee",
+                desc: "Has the user unleash a powerful chain attack while dashing forward. The final attack throws opposing Pokemon but also leaves the user unable to act for a short time.",
+                level: 10
+            }
+        }
+    },
+    {
+        name: "lucario",
+        range: "melee",
+        role: "all-rounder",
+        numEvolutions: 1,
+        preEvolutions: [
+            {}
+        ],
+        stats: {
+            offense: 3,
+            endurance: 2.5,
+            mobility: 3.5,
+            scoring: 3,
+            support: 0.5,
+        },
+        moves: {
+            basic: "Becomes a boosted attack with every third attack, performing a combo attack with a bone. Deals damage to opposing Pokemon in the area of effect and throws them.",
+            passive: {
+                name: "steadfast",
+                desc: "When the Pokemon is at low HP, it is shielded and its movement speed is increased."
+            },
+            primary: {
+                start: {
+                    name: "quick attack",
+                    cooldown: 6,
+                    moveType: "dash",
+                    desc: "Has the user lunge forward at a speed that makes them almost invisible, dealing damage to opposing Pokemon they come in contact with.",
+                },
+                choiceLv: 5,
+                choice1: {
+                    name: "extreme speed",
+                    cooldown: 9,
+                    moveType: "dash",
+                    desc: "Has the user charge forward with breathtaking speed. If this move hits an opposing Pokemon from point-blank range, its cooldown is reset and it restores the user's HP. However, the cooldown cannot be continually reset by using this move on the same opponent multiple times in succession.",
+                    upgrade: "Also increases Attack for a short time when this move is used.",
+                },
+                choice2: {
+                    name: "power-up punch",
+                    cooldown: 7,
+                    moveType: "dash",
+                    desc: "Charges power before unleashing a powerful attack. While the user is charing power, its movement speed is decreased but its Attack slowly increases and the damage it receives is reduced. The user then charges in the designated direction and releases this move, dealing more damage the lower the opposing Pokémon's remaining HP is and making its own next basic attack a boosted attack if the move hits. The move's cooldown is reduced every time one of the user's moves hits.",
+                    upgrade: "The user becomes immune to hindrances while charging power.",
+                }
+            },
+            secondary: {
+                start: {
+                    name: "meteor smash",
+                    cooldown: 7,
+                    moveType: "melee",
+                    desc: "Blasts forward with a punch like a comet, dealing damage to opposing Pokemon and shoving them.",
+                },
+                choiceLv: 7,
+                choice1: {
+                    name: "bone rush",
+                    cooldown: 10,
+                    moveType: "melee",
+                    desc:  "Performs a combo attack with a bone, dealing multiple damaging blows to opposing Pokémon and shoving them. The final attack sends the bone flying. If this move is used again while the bone is traveling, the user rushes to the location of the bone, dealing damage to nearby opposing Pokémon.",
+                    upgrade: "Using this move again will reset the cooldown for Extreme Speed or Power-Up Punch.",
+                },
+                choice2: {
+                    name: "close combat",
+                    cooldown: 9,
+                    moveType: "melee",
+                    desc: "Unleashed a combo attack, dealing multiple blows to opposing Pokemon and shoving them.",
+                    upgrade: "Increases damage dealt by this move",
+                }
+            },
+            unite: {
+                name: "aura cannon",
+                moveType: "ranged",
+                desc: "Deals damage to opposing Pokemon in the area of effect. Increases damage daelt by the user's next Power-Up Punch after using this Unite Move.",
+                level: 9
+            }
+        }
+    },
+    {
+        name: "absol",
+        range: "melee",
+        role: "speedster",
+        numEvolutions: 1,
+        preEvolutions: [
+            {}
+        ],
+        stats: {
+            offense: 3.5,
+            endurance: 2,
+            mobility: 4,
+            scoring: 2.5,
+            support: 0.5
+        },
+        moves: {
+            basic: "Becomes a boosted attack with every third attack, dealing damage to opposing Pokémon and decreasing their Defense when it hits. If this boosted attack hits only a single oppsing Pokémon, it deals increased damage.",
+            passive: {
+                name: "super luck",
+                desc: "Increases the Pokemon's critical-hit rate."
+            },
+            primary: {
+                start: {
+                    name: "feint",
+                    cooldown: 8,
+                    moveType: "dash",
+                    desc: "Has the user dash in an arc, attacking opposing Pokémon they come in contact with. This move ignores the defense stat and shield effects of opposing Pokémon.",
+                },
+                choiceLv: 5,
+                choice1: {
+                    name: "night slash",
+                    cooldown: 5,
+                    moveType: "dash",
+                    desc: "Has the user dash in an outward arc, dealing damage to opposing Pokémon. If this first attack hits, a second attack can also be performed. The second attack ahs the user dash straight ahead, dealing damage to opposing Pokémon and increasing the user's critical-hit rate. The lower the opposing Pokémon's HP, the more the user's critical-hit rate is increased.",
+                    upgrade: "Using this move again will restore the user's HP.",
+                },
+                choice2: {
+                    name: "pursuit",
+                    cooldown: 5,
+                    moveType: "dash",
+                    desc: "Has the user dash to the designated location and quickly charge an opposing Pokémon with the next basic attack. If the basic attack lands from behind, its damage is increased and this move's cooldown is reduced.",
+                    upgrade: "Increases the user's movement speed.",
+                }
+            },
+            secondary: {
+                start: {
+                    name: "slash",
+                    cooldown: 6,
+                    moveType: "melee",
+                    desc: "Slashes with sharp claws in front of the user and increases the user's critical-hit rate.",
+                },
+                choiceLv: 7,
+                choice1: {
+                    name: "psycho cut",
+                    cooldown: 7,
+                    moveType: "melee",
+                    desc: "Has the user attack with blades formed by psychic power that decrease the movement speed of opposing Pokémon for a short time when the move hits. Also increases basic attack damage dealt to the affected opposing Pokémon for up to three attacks after this move hits.",
+                    upgrade: "Also increases the user's movement speed for a short time when the user gets close to the opposing Pokemon that this move hit.",
+                },
+                choice2: {
+                    name: "sucker punch",
+                    cooldown: 7,
+                    moveType: "hindrance",
+                    desc: "Has the user look for an opening to attack an opposing Pokémon, decreasing the movement speed of the user and the opposing Pokémon for the duration. After a short time, the user charges to attack the opposing Pokémon. However, if the user receives damage or gets attacked before it charges, it attackes immediately and shoves the opposing Pokémon.",
+                    upgrade: "Increases basic attack speed for a short time when this move hits.",
+                }
+            },
+            unite: {
+                name: "midnight slash",
+                moveType: "area",
+                desc: "Unleashes a flurry of slashes in front of the user. This move ends by unleashing powerful blades of energy, dealing increased damage to opposing Pokemon and shoving them.",
+                level: 9
+            }
+        }
+    },
+    {
+        name: "crustle",
+        range: "melee",
+        role: "defender",
+        numEvolutions: 2,
+        preEvolutions: [
+            {
+                name: "dwebble",
+                evolveLv: 4,
+            }
+        ],
+        stats: {
+            offense: 1.5,
+            endurance: 4,
+            mobility: 1.5,
+            scoring: 2,
+            support: 3,
+        },
+        moves: {
+            basic: "Becomes a boosted attack with every third attack. When this boosted attack hits, it deals damage to opposing Pokémon in the area of effect and decreases their movement speed for a short time.",
+            passive: {
+                name: "sturdy",
+                desc: "Every time the Pokemon loses a certain amount of HP, its Defense and Sp. Def are increased."
+            },
+            primary: {
+                start: {
+                    name: "rock slide",
+                    cooldown: 6,
+                    moveType: "area",
+                    desc: "Drops large rocks on the designated area. When this move hits, it deals damage to opposing Pokémon in the area of effect and leaves them unable to act for a short time.",
+                },
+                choiceLv: 4,
+                choice1: {
+                    name: "rock tomb",
+                    cooldown: 5,
+                    moveType: "area",
+                    desc: "Splits open the ground toward the designated area, dealing damage to opposing Pokémon in the area of effect and creating a barricade of rock. When used again, gets rid of the barricade.",
+                    upgrade: "Also decreases the movement speed of opposing Pokemon for a short time when this move hits.",
+                },
+                choice2: {
+                    name: "shell smash",
+                    cooldown: 7,
+                    moveType: "buff",
+                    desc: "Has the user smash their shell, converting a set percentage of defense and special defense into Attack and Sp. Atk and increasing the user's movement speed for a short time.",
+                    upgrade: "Increases this move's conversion rate.",
+                }
+            },
+            secondary: {
+                start: {
+                    name: "fury cutter",
+                    cooldown: 3.5,
+                    moveType: "melee",
+                    desc: "Slashes opposing Pokémon with claws, dealing damage to them. Hitting the same opposing Pokémon multiple times in succession with this move increases the damage dealt.",
+                },
+                choiceLv: 6,
+                choice1: {
+                    name: "stealth rock",
+                    cooldown: 8,
+                    moveType: "area",
+                    desc: "Throws many small rocks. When a rock hits an opposing Pokémon, or when the rocks have flown their full distance, a zone of many levitating rocks is created, dealing damage over time to opposing Pokémon in the area of effect. The damage over time also slowly decreases.",
+                    upgrade: "Increases the duration of this move's effect and decreases the movement speed of opposing Pokémon for a short time when this move hits.",
+                },
+                choice2: {
+                    name: "x-scissor",
+                    cooldown: 9,
+                    moveType: "melee",
+                    desc: "Has the user dash forward with crossed claws, dealing damage to opposing Pokémon multiple times and shoving them. Leaves opposing Pokémon unable to act if they hit an object when shoved.",
+                    upgrade: "Reduce this move's cooldown.",
+                }
+            },
+            unite: {
+                name: "rubble rouser",
+                moveType: "buff",
+                desc: "Grants the user a shield for a short time and leaves nearby opposing Pokémon unable to act, dealing them damage over time. If the user receives damage while this move is in effect, the move deals additional hits to nearby opposing Pokémon.",
+                level: 9
+            }
+        }
+    },
+    {
+        name: "greninja",
+        range: "ranged",
+        role: "attacker",
+        numEvolutions: 3,
+        preEvolutions: [
+            {
+                name: "froakie",
+                evolveLv: 5,
+            },
+            {
+                name: "frogadier",
+                evolveLv: 9
+            }
+        ],
+        stats: {
+            offense: 4,
+            endurance: 2,
+            mobility: 3,
+            scoring: 3,
+            support: 0.5,
+        },
+        moves: {
+            basic: "Becomes a boosted attack with every third attack. At long range, a boosted attack deals increased damage to opposing Pokémon and decreases their movement speed for a short time. At close range, a boosted attack deals more damage the lower the opposing Pokémon remaining HP is.",
+            passive: {
+                name: "torrent",
+                desc: "When the Pokemon is at half HP or less, its damage and movement speed are increased."
+            },
+            primary: {
+                start: {
+                    name: "bubble",
+                    cooldown: 9,
+                    moveType: "ranged",
+                    desc: "Attacks with a spray of bubbles, decreasing the movement speed of opposing Pokemon for a short time when it hits.",
+                },
+                choiceLv: 7,
+                choice1: {
+                    name: "water shuriken",
+                    cooldown: 7,
+                    moveType: "ranged",
+                    desc: "Throws shurikens made of water in quick succession. Decreases the movement speed of opposing Pokémon for a short time and restores the user's HP when it hits. Also increases the user's movement speed while using this move.",
+                    upgrade: "Increases teh number of times this move attacks.",
+                },
+                choice2: {
+                    name: "surf",
+                    cooldown: 9,
+                    moveType: "melee",
+                    desc: "Has the user ride a wave, dealing damage to opposing Pokémon and restoring the user's HP. If this move knocks out an opposing Pokémon, its cooldown is reset. In addition, this move deals increased damage to opposing Pokémon with low HP.",
+                    upgrade: "Increases the amount of HP restored.",
+                }
+            },
+            secondary: {
+                start: {
+                    name: "substitute",
+                    cooldown: 8,
+                    moveType: "dash",
+                    desc: "Leaves behind a substitute for the user while they're moving forward.",
+                },
+                choiceLv: 5,
+                choice1: {
+                    name: "double team",
+                    cooldown: 11,
+                    moveType: "dash",
+                    desc: "Quickly moves the user away from the current position, creating illusory copies of them to aid in battle.",
+                    upgrade: "Reduces this move's cooldown.",
+                },
+                choice2: {
+                    name: "smokescreen",
+                    cooldown: 11,
+                    moveType: "dash",
+                    desc: "Creates a smokescreen and has the user roll away from its current location. Immediately afterward, the user begins sneaking and has its movement speed increased for a short time. This also makes its next basic attack a boosted attack.",
+                    upgrade: "Increases Attack for a short time when the user stops sneaking.",
+                }
+            },
+            unite: {
+                name: "waterburst shuriken",
+                moveType: "area",
+                desc: "Has the user throw a giant water shuriken toward the designated area, dealing damage to opposing Pokémon in the area of effect and decreasing their movement speed for a short time when this Unite Move hits. The water shuriken then immediately explodes, dealing damage to opposing Pokémon in the area of effect once again and throwing them. Once this Unite Move ends, the user may jump in a designated direction.",
+                level: 9
             }
         }
     }
