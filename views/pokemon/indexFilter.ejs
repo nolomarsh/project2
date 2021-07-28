@@ -18,15 +18,10 @@
                         <% if (filterRole === role) { %>
                             <%=role%>Card
                         <% } %>"
-                        href="/pokemon/<%=role%>">
+                        href="/pokemon/filter/<%=role%>">
                         <p class="caps"><%=role%></p>
                     </a>
                 <% } %>
-                <!-- <a class="btn btn-add attackerCard" href="/pokemon/attacker">Attacker</a>
-                <a class="btn btn-add speedsterCard" href="/pokemon/speedster">Speedster</a>
-                <a class="btn btn-add all-rounderCard" href="/pokemon/all-rounder">All-Rounder</a>
-                <a class="btn btn-add defenderCard" href="/pokemon/defender">Defender</a>
-                <a class="btn btn-add supporterCard" href="/pokemon/supporter">Supporter</a> -->
             </div>
             <div class="cardBox">
                 <% for (let pokemon of allPokemon) { %>

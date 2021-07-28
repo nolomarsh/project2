@@ -1,18 +1,19 @@
 :root {
     --lightPurple: #7b21e9;
     --purple: #6523b6;
-    --darkPurple: #421479;
+    --reddishPurple: #af21e9;
+    --darkPurple: #4d158f;
     --darkOrange: #cf5100;
     --orange: #e45b04;
     --brightOrange: #fb7823;
     --pastelOrange: #ffb22e;
     --gold: #f9c921;
-    --powderBlue: #5a7fff;
-    --darkBlue: #1435a3;
-    --cherryRed: #e6050b;
-    --darkRed: #820303;
-    --brightGreen: #17b527;
-    --darkGreen: #0a6b14;
+    --powderBlue: #5ba1ff;
+    --darkBlue: #3e14a3;
+    --cherryRed: #e60541;
+    --darkRed: #822d03;
+    --brightGreen: #79b517;
+    --darkGreen: #04620e;
     --black: #220a3d
 }
 
@@ -103,7 +104,8 @@ nav {
     padding: .25rem;
 }
 
-.userForm input:not([type='submit']) {
+.userForm input:not([type='submit']),
+.userForm select {
     margin-bottom: .5rem;
 }
 
@@ -177,7 +179,7 @@ select {
 }
 
 .all-rounderCard {
-    background: linear-gradient(45deg,var(--lightPurple),var(--darkPurple))
+    background: linear-gradient(45deg,var(--reddishPurple),var(--darkPurple))
 }
 
 .attackerCard {

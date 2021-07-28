@@ -14,7 +14,7 @@ pokemon.get('/', (req,res) => {
 })
 
 //Index (filtered)
-pokemon.get('/:role', (req,res) => {
+pokemon.get('/filter/:role', (req,res) => {
     Pokemon.find({role: req.params.role}, (error, filteredPokemon) => {
         res.render('pokemon/indexFilter.ejs', {
             allPokemon: filteredPokemon,

@@ -399,9 +399,7 @@ module.exports = [
         range: "ranged",
         role: "attacker",
         numEvolutions: 1,
-        preEvolutions: [
-            {}
-        ],
+        preEvolutions: [],
         stats: {
             offense: 4.5,
             endurance: 1.5,
@@ -790,9 +788,7 @@ module.exports = [
         range: "melee",
         role: "defender",
         numEvolutions: 1,
-        preEvolutions: [
-            {}
-        ],
+        preEvolutions: [],
         stats: {
             offense: 1.5,
             endurance: 5,
@@ -947,9 +943,7 @@ module.exports = [
         range: "melee",
         role: "all-rounder",
         numEvolutions: 1,
-        preEvolutions: [
-            {}
-        ],
+        preEvolutions: [],
         stats: {
             offense: 3,
             endurance: 2.5,
@@ -1022,9 +1016,7 @@ module.exports = [
         range: "melee",
         role: "speedster",
         numEvolutions: 1,
-        preEvolutions: [
-            {}
-        ],
+        preEvolutions: [],
         stats: {
             offense: 3.5,
             endurance: 2,

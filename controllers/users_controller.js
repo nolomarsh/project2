@@ -15,6 +15,17 @@ users.get('/', (req,res) => {
 
 })
 
+//Index(filtered)
+users.get('/filter/:role', (req,res) => {
+    User.find({faveRole: req.params.role}, (error, foundUsers) => {
+        res.render('users/indexFilter.ejs', {
+            currentUser: req.session.currentUser,
+            foundUsers: foundUsers,
+            filterRole: req.params.role
+        })
+    })
+})
+
 //New
 users.get('/new', (req,res) => {
     res.render('users/new.ejs', {

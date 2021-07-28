@@ -10,11 +10,14 @@
             <%-include('../partials/nav.ejs')%>
         </nav>
         <main>
-            <h1>All Users</h1>
+            <h1 class="caps"><%=filterRole%> Mains</h1>
             <div class="btnBox">
                 <a class="btn btn-add" href="/users">All Roles</a>
                 <% for (let role of ['attacker','speedster','all-rounder','defender','supporter']) { %>
-                    <a class="btn btn-add"
+                    <a class="btn btn-add
+                        <% if (filterRole === role) { %>
+                            <%=role%>Card
+                        <% } %>"
                         href="/users/filter/<%=role%>">
                         <p class="caps"><%=role%></p>
                     </a>
@@ -25,7 +28,7 @@
                     <th>Username</th>
                     <th>Favorite Role</th>
                 </thead>
-                <% for (let user of allUsers) { %>
+                <% for (let user of foundUsers) { %>
                     <tr>
                         <td><a href="users/<%=user._id%>"><%=user.username%></a></td>
                         <td><%=user.faveRole%></td>
