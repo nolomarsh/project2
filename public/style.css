@@ -218,7 +218,6 @@ select {
 }
 
 .evoContainer img {
-    /* width: 25%; */
     max-width: 200px;
     filter: drop-shadow(5px 5px 1px rgba(0, 0, 0, .2))
 }
@@ -338,13 +337,14 @@ tr:last-child *{
 .infoContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
     margin: 1rem 0;
 }
 
-.infoContainer > div {
+.infoContainer > * {
     width: 30%;
+    margin: 0 1.5%;
     background: var(--pastelOrange);
     padding: .5rem;
     border-radius: 20px;

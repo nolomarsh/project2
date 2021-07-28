@@ -49,19 +49,54 @@ users.post('/favorite/:id', (req,res) => {
     })
 })
 
-//add/remove friend
-users.post('/friend/:id', (req,res) => {
-    User.findById(req.body.currentUserId, (error, foundUser) => {
-        User.findById(req.params.id, (error, newFriend) => {
-            if (!foundUser.friendIds.includes(newFriend._id.toString())) {
-                foundUser.friendIds.push(newFriend._id)
+//add/remove friend request
+users.post('/friend-request/:sender/:receiver', (req,res) => {
+    User.findById(req.params.sender, (error, sender) => {
+        User.findById(req.params.receiver, (error, receiver) => {
+            if (!receiver.requestIds.includes(sender._id.toString())) {
+                receiver.requestIds.push(sender._id)
             } else {
-                let friendIndex = foundUser.friendIds.indexOf(newFriend._id.toString())
-                foundUser.friendIds.splice(friendIndex,1)
+                let friendIndex = receiver.requestIds.indexOf(sender._id.toString())
+                receiver.requestIds.splice(friendIndex,1)
             }
-            foundUser.save((error,savedUser) => {
-                req.session.currentUser = savedUser
-                res.redirect('/users/'+req.params.id)
+            receiver.save((error, savedUser) => {
+                res.redirect('/users/'+req.params.receiver)
+            })
+        })
+    })
+})
+
+//accept/deny friend requests
+users.post('/accept-friend/:sender/:receiver/:response', (req,res) => {
+    User.findById(req.params.sender, (error, sender) => {
+        User.findById(req.params.receiver, (error, receiver) => {
+            let requestIndex = receiver.requestIds.indexOf(sender._id.toString())
+            receiver.requestIds.splice(requestIndex,1)
+            if (req.params.response === "accept") {
+                receiver.friendIds.push(sender._id)
+                sender.friendIds.push(receiver._id)
+            }
+            sender.save()
+            receiver.save(() => {
+                req.session.currentUser = receiver
+                res.redirect('/users/'+req.params.receiver)
+            })
+        })
+    })
+})
+
+//unfriend
+users.post('/unfriend/:user/:ex', (req,res) => {
+    User.findById(req.params.user, (error, user) => {
+        User.findById(req.params.ex, (error, ex) => {
+            let friendIndex = user.friendIds.indexOf(ex._id.toString())
+            user.friendIds.splice(friendIndex,1)
+            friendIndex = ex.friendIds.indexOf(user._id.toString())
+            ex.friendIds.splice(friendIndex,1)
+            user.save()
+            ex.save(() => {
+                req.session.currentUser = user
+                res.redirect('/users/'+req.params.ex)
             })
         })
     })
@@ -76,11 +111,18 @@ users.get('/:id', (req,res) => {
                 friends.push(foundFriend)
             })
         }
+        let friendRequests = []
+        for (let requestId of foundUser.requestIds) {
+            User.findById(requestId, (error, foundRequester) => {
+                friendRequests.push(foundRequester)
+            })
+        }
         Pokemon.find({}, (err, allPokemon) => {
             res.render('users/show.ejs', {
                 currentUser: req.session.currentUser,
                 friends: friends,
-                user: foundUser,
+                requests: friendRequests,
+                shownUser: foundUser,
                 allPokemon: allPokemon
             })
         })

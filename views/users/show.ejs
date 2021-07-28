@@ -13,39 +13,55 @@
             <div class="infoContainer">
                 <div class="userInfo">
                     <h3>User Info</h3>
-                    <p>Username: <%=user.username%></p>
-                    <p>Name: <%=user.firstName + ' ' + user.lastName%></p>
-                    <p>Pronouns: <%=user.pronouns%></p>
-                    <% if (currentUser) { %>
-                        <% if (user._id.toString() !== currentUser._id.toString()) { %>
-                        <form action="./friend/<%=user._id%>" method="post">
-                            <input name="currentUserId" value="<%=currentUser._id%>" hidden>
-                            <input class="btn btn-add" type="submit" value=
-                                <% if (!currentUser.friendIds.includes(user._id.toString())) { %>
-                                    "Add Friend"
+                    <p>Username: <%=shownUser.username%></p>
+                    <p>Name: <%=shownUser.firstName + ' ' + shownUser.lastName%></p>
+                    <p>Pronouns: <%=shownUser.pronouns%></p>
+                    <p>Favorite Role: <%=shownUser.faveRole%></p>
+                    <% if (currentUser && shownUser._id.toString() !== currentUser._id.toString()) { %>
+                        <% if (!currentUser.friendIds.includes(shownUser._id.toString())) { %>
+                            <form action="./friend-request/<%=currentUser._id%>/<%=shownUser._id%>" method="post">
+                                <input type="submit" value=<% if (!shownUser.requestIds.includes(currentUser._id.toString())) { %>
+                                    "Send Friend Request"
                                 <% } else { %>
-                                    "Unfriend"
+                                    "Cancel Friend Request"
                                 <% } %>
-                            >
-                        </form>
-                        <% }
-                    } %>
+                                >
+                            </form>
+                        <% } else {%>
+                            <form action="./unfriend/<%=currentUser._id%>/<%=shownUser.id%>" method="post">
+                                <input type="submit" value="Unfriend">
+                            </form>
+                        <% } %>
+                    <% } else { %>
+                        <a href="./<%=shownUser._id%>/edit">Edit Profile</a>
+                    <% } %>
                 </div>
                 <div class="friendsInfo">
                     <h3>Friends</h3>
                     <% for (let friend of friends) { %>
-                        <p><%=friend.username%></p>
+                        <a href="./<%-friend._id%>"><%=friend.username%></a>
                     <% } %>
                 </div>
-                <div class="squadsInfo">
-                    <h3>Squads</h3>
-                </div>
+                <% if (currentUser && shownUser._id.toString() === currentUser._id.toString()) { %>
+                    <div class="requestInfo">
+                        <h3>Friend Requests</h3>
+                        <% for (let request of requests) { %>
+                            <a href="./<%=request._id%>"><%=request.username%></a>
+                            <form action="./accept-friend/<%=request._id%>/<%=currentUser._id%>/accept" method="post">
+                                <input type="submit" value="Accept">
+                            </form>
+                            <form action="./accept-friend/<%=request._id%>/<%=currentUser._id%>/deny" method="post">
+                                <input type="submit" value="Deny">
+                            </form>
+                        <% } %>
+                    </div>
+                <% } %>
             </div>
             <div class="favesBox">
                 <h2>Favorite Pokemon</h2>
                 <div class="cardBox">
                     <% for (let pokemon of allPokemon) {
-                        if(user.favePokemon.includes(pokemon.name)) {%>
+                        if(shownUser.favePokemon.includes(pokemon.name)) {%>
                             <div class="card">
                                 <a class="<%=pokemon.role%>Card" href="/pokemon/<%=pokemon._id%>">
                                     <img class="card-img-top" src="/images/<%=pokemon.name%>/<%=pokemon.name%>.png" alt="<%=pokemon.name%>">
@@ -58,8 +74,8 @@
                     } %>
                 </div>
             </div>
-            <% if (currentUser && currentUser.username === user.username) { %>
-                <a href="./<%=user._id%>/edit">Edit Profile</a>
+            <% if (currentUser && currentUser.username === shownUser.username) { %>
+
             <% } %>
         </main>
         <footer>

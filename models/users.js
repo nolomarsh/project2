@@ -10,7 +10,8 @@ const userSchema = new Schema({
     pronouns: String,
     faveRole: String,
     favePokemon: [String],
-    friendIds: [String]
+    friendIds: [String],
+    requestIds: [String]
 })
 
 const User = mongoose.model('User', userSchema)
