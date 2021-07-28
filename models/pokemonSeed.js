@@ -624,5 +624,240 @@ module.exports = [
                 level: 8
             }
         }
+    },
+    {
+        name: "machamp",
+        range: "melee",
+        role: "all-rounder",
+        numEvolutions: 3,
+        preEvolutions: [
+            {
+                name: "machop",
+                evolveLv: 5,
+            },
+            {
+                name: "machoke",
+                evolveLv: 9
+            }
+        ],
+        stats: {
+            offense: 4,
+            endurance: 2.5,
+            mobility: 2.5,
+            scoring: 2.5,
+            support: 1,
+        },
+        moves: {
+            basic: "Becomes a boosted attack with every third attack, dealing increased damage when it hits. This boosted attack also decreases movement speed of opposing Pokemon for a short time.",
+            passive: {
+                name: "guts",
+                desc: "Increases the Pokemon's attack when the Pokemon is afflicted by a status condition."
+            },
+            primary: {
+                start: {
+                    name: "karate chop",
+                    cooldown: 6,
+                    moveType: "melee",
+                    desc: "Attacks opposing Pokemon with a sharp chop.",
+                },
+                choiceLv: 7,
+                choice1: {
+                    name: "close combat",
+                    cooldown: 6,
+                    moveType: "melee",
+                    desc: "Unleashes a series of punches in the designated direction, dealing increased damage with the last punch. The user can move while using this move and becomes immune to hindrances.",
+                    upgrade: "Deals increased damage to Pokemon that are affected by a status condition.",
+                },
+                choice2: {
+                    name: "cross chop",
+                    cooldown: 6,
+                    moveType: "dash",
+                    desc: "Has the user deliver a double chop with forearms crossed while dashing forward.",
+                    upgrade: "Increases Attack with each basic attack, up to a set max.",
+                }
+            },
+            secondary: {
+                start: {
+                    name: "bulk up",
+                    cooldown: 9,
+                    moveType: "buff",
+                    desc: "After using this move, the user becomes immune to hindrances for a short time, their movement speed and attack are increased, and their basic attack speed is increased. The user's next basic attack also becomes a boosted attack.",
+                },
+                choiceLv: 5,
+                choice1: {
+                    name: "dynamic punch",
+                    cooldown: 8,
+                    moveType: "dash",
+                    desc: "Has the user jump to the designated location, dealing damage to opposing Pokémon in the area of effect and leaving them unable to act when it hits. After using this move, the user becomes immune to hindrances for a short time, their movement speed is increased, and their basic attack speed is increased. The user's next basic attack also becomes a boosted attack.",
+                    upgrade: "Further increases attack and movement speed.",
+                },
+                choice2: {
+                    name: "sumission",
+                    cooldown: 11,
+                    moveType: "hindrance",
+                    desc: "Increases the user's movement speed and makes it immune to hindrances. When the user's next basic attack hits, the attack deals increased damage and slams the opposing Pokemon onto the ground, leaving it unable to act. Once this move ends, the user's critical-hit rate and basic attack speed are increased for a short time.",
+                    upgrade: "Further increases critical-hit rate and increases basic attack speed.",
+                }
+            },
+            unite: {
+                name: "barrage blow",
+                moveType: "buff",
+                desc: "Increases the user's movement speed, Attack, Defense, and Sp. Def for a short time. If used again, unleashes a combo attack, dealing damage to opposing Pokemon in the area of effect and shoving them. The final blow deals an especially large amount of damage.",
+                level: 9
+            }
+        }
+    },
+    {
+        name: "slowbro",
+        range: "ranged",
+        role: "defender",
+        numEvolutions: 2,
+        preEvolutions: [
+            {
+                name: "slowpoke",
+                evolveLv: 4,
+            }
+        ],
+        stats: {
+            offense: 1.5,
+            endurance: 4,
+            mobility: 1.5,
+            scoring: 1.5,
+            support: 4,
+        },
+        moves: {
+            basic: "Becomes a boosted attack with every third attack. When this boosted attack hits, it deals damage to nearby opposing Pokemon and decreases their movement speed for a short time.",
+            passive: {
+                name: "oblivious",
+                desc: "When the Pokemon receives damage, the HP loss is gradual. When damaging an opposing Pokemon with a move, the Pokemon nullifies some of this pending damage before it takes effect, and it also decreases the opposing Pokemon's Sp. Def for a short time."
+            },
+            primary: {
+                start: {
+                    name: "water gun",
+                    cooldown: 5,
+                    moveType: "melee",
+                    desc: "Shoots water forcefully, dealing damage to opposing Pokemon and decreasing their movement speed for a short time when it hits. Holding down the button for this move increases its area of effect and damage.",
+                },
+                choiceLv: 4,
+                choice1: {
+                    name: "scald",
+                    cooldown: 5,
+                    moveType: "melee",
+                    desc: "Shoots boiling hot water, dealing damage to opposing Pokemon and creating steam when it hits. Opposing Pokemon inside steam's area of effect are left burned and have their movement speed decreased for a short time.",
+                    upgrade: "Increases the vapor's area of effect.",
+                },
+                choice2: {
+                    name: "surf",
+                    cooldown: 9,
+                    moveType: "dash",
+                    desc: "Has the user charge forward on a wave, dealing damage to opposing Pokemon in the area of effect and throwing them. This is followed by two more waves that deal damage to opposing Pokemon in the area of effect and decrease their movement speed for a short time.",
+                    upgrade: "The second and third waves become larger and also throw opposing pokemon like the first wave does.",
+                }
+            },
+            secondary: {
+                start: {
+                    name: "slack off",
+                    cooldown: 11,
+                    moveType: "recovery",
+                    desc: "Has the user slack off, continually restoring its HP for a short time. If this slacking off is interrupted, the HP restoration effect continues at decreased power.",
+                },
+                choiceLv: 6,
+                choice1: {
+                    name: "String",
+                    cooldown: 13,
+                    moveType: "recovery",
+                    desc: "Allows the user to nullify some damage before it takes effect. For a short time after using this move, the user becomes immune to hindrances and gains increased Defense. This move also increases the damage dealt by the next use of Scald or Surf.",
+                    upgrade: "Increases Sp. Atk.",
+                },
+                choice2: {
+                    name: "telekinesis",
+                    cooldown: 11,
+                    moveType: "hindrance",
+                    desc: "Makes opposing Pokemon float with psychic power. If used again, pulls the opposing Pokemon toward the user.",
+                    upgrade: "Increases this move's firing speed and range.",
+                }
+            },
+            unite: {
+                name: "slowbeam",
+                moveType: "hindrance",
+                desc: "Has the user stare at an opposing Pokemon and attack continually, dealing damage and binding them. Shields the user and makes them unstoppable while they're using this move.",
+                level: 9
+            }
+        }
+    },
+    {
+        name: "snorlax",
+        range: "melee",
+        role: "defender",
+        numEvolutions: 1,
+        preEvolutions: [
+            {}
+        ],
+        stats: {
+            offense: 1.5,
+            endurance: 5,
+            mobility: 2,
+            scoring: 1.5,
+            support: 2.5,
+        },
+        moves: {
+            basic: "Becomes a boosted attack with every third attack. When this boosted attack hits, it deals damage to nearby opposing Pokemon and decreases their movement speed for a short time.",
+            passive: {
+                name: "gluttony",
+                desc: "Increases the effects gained from eating berries."
+            },
+            primary: {
+                start: {
+                    name: "tackle",
+                    cooldown: 6,
+                    moveType: "dash",
+                    desc: "Has the user charge forward belly first, dealing damage when it hits and shoving the first opposing Pokemon it comes in contact with. After this move, the user's next basic attack becomes a boosted attack.",
+                },
+                choiceLv: 6,
+                choice1: {
+                    name: "heavy slam",
+                    cooldown: 7,
+                    moveType: "dash",
+                    desc: "Has the user slam their heavy body down, dealing damage to opposing Pokemon in the area of effect and throwing them.",
+                    upgrade: "Increases damage dealt by this move.",
+                },
+                choice2: {
+                    name: "flail",
+                    cooldown: 6.5,
+                    moveType: "hindrance",
+                    desc: "Has the user flail about, increasing the user's basic attack damage the lower the user's HP is.",
+                    upgrade: "Increases the damage of this move. If the user has low HP while using this move, its basic attacks that hit opposing Pokemon will restore the user's HP.",
+                }
+            },
+            secondary: {
+                start: {
+                    name: "rest",
+                    cooldown: 10,
+                    moveType: "hindrance",
+                    desc: "Has the user fall asleep on the spot and restores their HP. Blocks the movement of all Pokemon not on the user's team while this move is in effect.",
+                },
+                choiceLv: 8,
+                choice1: {
+                    name: "block",
+                    cooldown: 11,
+                    moveType: "hindrance",
+                    desc: "Has the user spread their arms wide to create a wall and grants them a shield. Prevents Pokemon from passing through the wall and shoves opposing Pokemon that run into it.",
+                    upgrade: "Reduces the damage the user receives while this move is in effect.",
+                },
+                choice2: {
+                    name: "yawn",
+                    cooldown: 12,
+                    moveType: "hindrance",
+                    desc: "Has the user let loose a huge yawn that lulls opposing Pokemon into a sleepy haze, putting opposing Pokemon hit by this move to sleep.",
+                    upgrade: "Also decreases the movement speed of opposing Pokemon for short time when this move hits.",
+                }
+            },
+            unite: {
+                name: "power nap",
+                moveType: "buff",
+                desc: "Has the user go to sleep and begin snoring, dealing damage over time to opposing Pokemon in the area of effect and throwing them. While sleeping, the user becomes immune to hindrances and its HP is continually restored.",
+                level: 10
+            }
+        }
     }
 ]
