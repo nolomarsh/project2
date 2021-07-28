@@ -1,0 +1,29 @@
+<h3>Level <%=pokemon.moves.primary.choiceLv%> (choose one)</h3>
+<div class="moveBox">
+    <div class="moveHeader">
+        <img src="/images/<%=pokemon.name%>/primary1.png" alt="">
+        <p><%=pokemon.moves.primary.choice1.name%></p>
+        <div class="tagBox">
+            <p><i class="fas fa-clock"></i> <%=pokemon.moves.primary.choice1.cooldown%>s</p>
+            <p><%=pokemon.moves.primary.choice1.moveType%></p>
+        </div>
+    </div>
+    <div class="moveBody">
+        <p><%=pokemon.moves.primary.choice1.desc%></p>
+        <p>Upgrade: <%=pokemon.moves.primary.choice1.upgrade%></p>
+    </div>
+</div>
+<div class="moveBox">
+    <div class="moveHeader">
+        <img src="/images/<%=pokemon.name%>/primary2.png" alt="">
+        <p><%=pokemon.moves.primary.choice2.name%></p>
+        <div class="tagBox">
+            <p><i class="fas fa-clock"></i> <%=pokemon.moves.primary.choice2.cooldown%>s</p>
+            <p><%=pokemon.moves.primary.choice2.moveType%></p>
+        </div>
+    </div>
+    <div class="moveBody">
+        <p><%=pokemon.moves.primary.choice2.desc%></p>
+        <p>Upgrade: <%=pokemon.moves.primary.choice2.upgrade%></p>
+    </div>
+</div>

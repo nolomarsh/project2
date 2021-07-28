@@ -12,10 +12,17 @@
         <main>
             <div class="evoContainer <%=pokemon.role%>Card">
                 <% for (let stage of pokemon.preEvolutions) { %>
-                    <img src="/images/<%=pokemon.name%>/<%=stage.name%>.png" alt="">
+                    <div class="evoCard">
+                        <img src="/images/<%=pokemon.name%>/<%=stage.name%>.png" alt="">
+                        <h4><%=stage.name%></h4>
+                    </div>
+
                     <span>>Level <%=stage.evolveLv%>></span>
                 <% } %>
-                <img src="/images/<%=pokemon.name%>/<%=pokemon.name%>.png" alt="<%=pokemon.name%>">
+                <div class="evoCard">
+                    <img src="/images/<%=pokemon.name%>/<%=pokemon.name%>.png" alt="<%=pokemon.name%>">
+                    <h4><%=pokemon.name%></h4>
+                </div>
             </div>
             <h1><%=pokemon.name%></h1>
             <div class="tagBox">
@@ -34,11 +41,14 @@
                     >
                 </form>
             <% } %>
-            <div class="statsTable">
-                <h3 class="statsTitle">Stats</h3>
+            <table class="statsTable">
+                <thead>
+                    <th colspan='2'><h3 class="statsTitle">Stats</h3></th>
+                </thead>
                 <% for (let stat of ['offense','endurance','mobility','scoring','support']) { %>
                     <div class="statLine">
-                        <span style="text-transform:capitalize"><%=stat%>: </span>
+                        <td style="text-transform:capitalize"><%=stat%>: </td>
+                        <td>
                         <% let num = pokemon.stats[stat];
                             while (num > 0) {
                                 if (num >= 1) { %>
@@ -48,10 +58,11 @@
                                     <i class="fas fa-star-half"></i>
                                 <% num--
                                 }
-                            } %>
-                    </div>
+                        } %>
+                        </td>
+                    </tr>
                 <% } %>
-            </div>
+            </table>
 
             <h2>Moves</h2>
             <div class="moveBox">
@@ -102,60 +113,15 @@
                     <p><%=pokemon.moves.secondary.start.desc%></p>
                 </div>
             </div>
-            <h3>Level <%=pokemon.moves.primary.choiceLv%> (choose one)</h3>
-            <div class="moveBox">
-                <div class="moveHeader">
-                    <img src="/images/<%=pokemon.name%>/primary1.png" alt="">
-                    <p><%=pokemon.moves.primary.choice1.name%></p>
-                    <div class="tagBox">
-                        <p><i class="fas fa-clock"></i> <%=pokemon.moves.primary.choice1.cooldown%>s</p>
-                        <p><%=pokemon.moves.primary.choice1.moveType%></p>
-                    </div>
-                </div>
-                <div class="moveBody">
-                    <p><%=pokemon.moves.primary.choice1.desc%></p>
-                </div>
-            </div>
-            <div class="moveBox">
-                <div class="moveHeader">
-                    <img src="/images/<%=pokemon.name%>/primary2.png" alt="">
-                    <p><%=pokemon.moves.primary.choice2.name%></p>
-                    <div class="tagBox">
-                        <p><i class="fas fa-clock"></i> <%=pokemon.moves.primary.choice2.cooldown%>s</p>
-                        <p><%=pokemon.moves.primary.choice2.moveType%></p>
-                    </div>
-                </div>
-                <div class="moveBody">
-                    <p><%=pokemon.moves.primary.choice2.desc%></p>
-                </div>
-            </div>
-            <h3>Level <%=pokemon.moves.secondary.choiceLv%> (choose one)</h3>
-            <div class="moveBox">
-                <div class="moveHeader">
-                    <img src="/images/<%=pokemon.name%>/secondary1.png" alt="">
-                    <p><%=pokemon.moves.secondary.choice1.name%></p>
-                    <div class="tagBox">
-                        <p><i class="fas fa-clock"></i> <%=pokemon.moves.secondary.choice1.cooldown%>s</p>
-                        <p class=<%=pokemon.moves.secondary.choice1.moveType%>><%=pokemon.moves.secondary.choice1.moveType%></p>
-                    </div>
-                </div>
-                <div class="moveBody">
-                    <p><%=pokemon.moves.secondary.choice1.desc%></p>
-                </div>
-            </div>
-            <div class="moveBox">
-                <div class="moveHeader">
-                    <img src="/images/<%=pokemon.name%>/secondary2.png" alt="">
-                    <p><%=pokemon.moves.secondary.choice2.name%></p>
-                    <div class="tagBox">
-                        <p><i class="fas fa-clock"></i> <%=pokemon.moves.secondary.choice2.cooldown%>s</p>
-                        <p class=<%=pokemon.moves.secondary.choice2.moveType%>><%=pokemon.moves.secondary.choice2.moveType%></p>
-                    </div>
-                </div>
-                <div class="moveBody">
-                    <p><%=pokemon.moves.secondary.choice2.desc%></p>
-                </div>
-            </div>
+
+            <% if (pokemon.moves.primary.choiceLv < pokemon.moves.secondary.choiceLv) { %>
+                <%-include('../partials/primaryMoves.ejs')%>
+                <%-include('../partials/secondaryMoves.ejs')%>
+            <% } else { %>
+                <%-include('../partials/secondaryMoves.ejs')%>
+                <%-include('../partials/primaryMoves.ejs')%>
+            <% } %>
+
             <h3>Level <%=pokemon.moves.unite.level%></h3>
             <div class="moveBox">
                 <div class="moveHeader">
@@ -174,10 +140,5 @@
         <footer>
             <%-include('../partials/footer.ejs')%>
         </footer>
-        <script type="text/javascript">
-            // $('#faveBtn').click(() => {
-            //     console.log(currentUser);
-            // })
-        </script>
     </body>
 </html>

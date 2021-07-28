@@ -217,15 +217,26 @@ select {
     box-shadow: 1px 1px 3px var(--black)
 }
 
-.evoContainer > img {
+.evoContainer img {
     /* width: 25%; */
     max-width: 200px;
     filter: drop-shadow(5px 5px 1px rgba(0, 0, 0, .2))
 }
 
-.evoContainer > span {
+.evoContainer span {
     width: 75px;
     text-align: center;
+}
+
+.evoCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+.evoCard * {
+    text-transform: capitalize;
 }
 
 .statsTable {
@@ -236,11 +247,13 @@ select {
     border: 1px solid var(--darkPurple);
     border-radius: 15px;
     margin-top: 2rem;
-    box-shadow: 1px 1px 3px var(--black)
+    box-shadow: 1px 1px 3px var(--black);
+    border-collapse: unset;
 }
 
-.statsTitle {
+.statsTable thead{
     text-align: center;
+    border-bottom: none;
 }
 
 .fas {
@@ -342,16 +355,22 @@ tr:last-child *{
     text-align: center;
 }
 
+.userInfo form {
+    display: flex;
+    justify-content: center;
+}
+
 .btn-add {
     background-color: var(--lightPurple);
-    border-color: var(--lightPurple);
+    border-color: var(--purple);
     color: whitesmoke;
     transition: .1s;
+    margin-top: .5rem;
 }
 
 .btn-add:hover {
     background-color: var(--purple);
-    border-color: var(--purple);
+    border-color: var(--darkPurple);
     color: whitesmoke;
 }
 
