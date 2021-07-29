@@ -86,7 +86,7 @@ const calcSquads = (playerArr) => {
     let combos = []
 
     const rSquad = (combo = [],playerIndex = 0, pokemonIndex = 0) => {
-        if (combo.length >= playerArr.length ||) {
+        if (combo.length >= playerArr.length) {
             combos.push(combo)
         } else {
 
@@ -100,4 +100,4 @@ const calcSquads = (playerArr) => {
 }
 
 // console.log(testPlayers[0].favePokemon);
-console.log(calcSquads(testPlayers));
+// console.log(calcSquads(testPlayers));

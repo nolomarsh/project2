@@ -1243,5 +1243,397 @@ module.exports = [
                 level: 9
             }
         }
+    },
+    {
+        name: "gardevoir",
+        range: "ranged",
+        role: "attacker",
+        numEvolutions: 3,
+        preEvolutions: [
+            {
+                name: "ralts",
+                evolveLv: 6,
+            },
+            {
+                name: "kirlia",
+                evolveLv: 10
+            }
+        ],
+        stats: {
+            offense: 4.5,
+            endurance: 1.5,
+            mobility: 1.5,
+            scoring: 3,
+            support: 1.5,
+        },
+        moves: {
+            basic: "Becomes a boosted attack with every third attack. When the boosted attack hits, it deals damage to opposing Pokémon in the area of effect and decreases their Sp. Def for a short time.",
+            passive: {
+                name: "synchronize",
+                desc: "When an opponent inflicts decreased movement speed or a damage-over-time condition on the Pokémon, the same is inflicted on that opponent. This ability goes on cooldown after it's triggered."
+            },
+            primary: {
+                start: {
+                    name: "confusion",
+                    cooldown: 4.5,
+                    moveType: "ranged",
+                    desc: "Attacks straight in the designated direction.",
+                },
+                choiceLv: 8,
+                choice1: {
+                    name: "psychic",
+                    cooldown: 7,
+                    moveType: "ranged",
+                    desc: "After hitting an opposing Pokémon or traveling its maximum distance, deals damage over time to opposing Pokémon in the area of effect and decreases their movement speed for a short time.",
+                    upgrade: String,
+                },
+                choice2: {
+                    name: "moonblast",
+                    cooldown: 6,
+                    moveType: "ranged",
+                    desc: "Has the user attack while moving back to create distance. When the move's blast hits, it deals damage to opposing Pokémon in a cone and leaves the opposing Pokémon closest to the user unable to act for a short time.",
+                    upgrade: "Also grants the user a shield when this move is used.",
+                }
+            },
+            secondary: {
+                start: {
+                    name: "teleport",
+                    cooldown: 11,
+                    moveType: "dash",
+                    desc: "Has the user warp to the designated area, increasing the damage dealt by one basic attack after warping.",
+                },
+                choiceLv: 6,
+                choice1: {
+                    name: "psyshock",
+                    cooldown: 10,
+                    moveType: "area",
+                    desc: "Attacks the designated location three times. This move's cooldown is reduced each time one of these attacks hits an opposing Pokémon.",
+                    upgrade: "Also increases the damage this move deals each time one of its attacks hits.",
+                },
+                choice2: {
+                    name: "future sight",
+                    cooldown: 9,
+                    moveType: "area",
+                    desc: "Sets a delayed explosion. When the explosion hits an opposing Pokemon, it redeuces the move's cooldown.",
+                    upgrade: "Resets this move's cooldown when it hits.",
+                }
+            },
+            unite: {
+                name: "fairy singularity",
+                moveType: "hindrance",
+                desc: "Warps space in the designated area, drawing in opposing Pokemon. Shoves and deals damage to opposing Pokemon the instant the warped space disappears.",
+                level: 10
+            }
+        }
+    },
+    {
+        name: "talonflame",
+        range: "melee",
+        role: "speedster",
+        numEvolutions: 3,
+        preEvolutions: [
+            {
+                name: "fletchling",
+                evolveLv: 5,
+            },
+            {
+                name: "fletchinder",
+                evolveLv: 9
+            }
+        ],
+        stats: {
+            offense: 2.5,
+            endurance: 1.5,
+            mobility: 5,
+            scoring: 3.5,
+            support: 0.5,
+        },
+        moves: {
+            basic: "Becomes a boosted attack with every third attack, creating a fiery whirlwind that deals damage to opposing Pokémon in the area of effect. This boosted attack remains readied even if the user leaves combat for a prolonged period of time after the first two basic attacks.",
+            passive: {
+                name: "gale wings",
+                desc: "When the Pokemon is at high HP, its movement speed is increased."
+            },
+            primary: {
+                start: {
+                    name: "peck",
+                    cooldown: 5,
+                    moveType: "melee",
+                    desc: "Has the user fly toward an opposing Pokemon and attack three times.",
+                },
+                choiceLv: 5,
+                choice1: {
+                    name: "flame charge",
+                    cooldown: 6.5,
+                    moveType: "dash",
+                    desc: "Has the user fly in the designated direction while cloaked in flame, attacking opposing Pokémon in its path. Also increases the user's movement speed for a short time.",
+                    upgrade: "For a short time after this move hits, the user's moves and basic attacks partially ignore opposing Pokémon's Defense.",
+                },
+                choice2: {
+                    name: "aerial ace",
+                    cooldown: 6,
+                    moveType: "dash",
+                    desc: "Has the user fly at the designated opposing Pokémon, dealing damage. Also makes the user's next basic attack a boosted attack.",
+                    upgrade: "Increases damage dealt by this move.",
+                }
+            },
+            secondary: {
+                start: {
+                    name: "acrobatics",
+                    cooldown: 8,
+                    moveType: "dash",
+                    desc: "Has the user fly toward the designated area and attack multiple times. Allows the user to escape in a direction of their choice after using this move.",
+                },
+                choiceLv: 7,
+                choice1: {
+                    name: "fly",
+                    cooldown: 11,
+                    moveType: "dash",
+                    desc: "Has the user fly up into the sky. If used again, has the user dive to the designated area and attack, dealing damage to opposing Pokémon when this move hits.",
+                    upgrade: "Also throws opposing Pokemon when this move hits.",
+                },
+                choice2: {
+                    name: "brave bird",
+                    cooldown: 10,
+                    moveType: "dash",
+                    desc: "Has the user dive to the designated location while cloaked in flame, dealing damage to opposing Pokémon in the area of effect. Also deals recoil damage to the user when it hits. Performing a poosted attack within a set amount of time after this move hits will reset the cooldown for Flame Charge or Aerial Ace.",
+                    upgrade: "Reduces damage received when this move hits.",
+                }
+            },
+            unite: {
+                name: "flame sweep",
+                moveType: "dash",
+                desc: "Has the user perform an aerial somersault before charging forward, dealing damage to opposing Pokémon in this move's path and shoving them.",
+                level: 9
+            }
+        }
+    },
+    {
+        name: "zeraora",
+        range: "melee",
+        role: "speedster",
+        numEvolutions: 1,
+        preEvolutions: [],
+        stats: {
+            offense: 4.5,
+            endurance: 1.5,
+            mobility: 4,
+            scoring: 3,
+            support: 0.5,
+        },
+        moves: {
+            basic: "Becomes a boosted attack with every third attack, dealing increased damage when it hits. Also paralyzes opposing Pokémon and restores the user's HP.",
+            passive: {
+                name: "volt absorb",
+                desc: "The Pokémon gains an electric charge whenever it receives damage, converting a portion of that damage into additional Attack."
+            },
+            primary: {
+                start: {
+                    name: "agility",
+                    cooldown: 6,
+                    moveType: "dash",
+                    desc: "Has the user perform a quick dash and increases the user's basic attack speed for a short time afterward.",
+                },
+                choiceLv: 6,
+                choice1: {
+                    name: "volt switch",
+                    cooldown: 8,
+                    moveType: "dash",
+                    desc: "Has the user perform a high-speed dash, dealing damage to any opposing Pokémon it hits and increasing the user's basic attack speed for a short time. Using this move again within a set period of time will allow the user to immediately dash back to where it originally used the move.",
+                    upgrade: "Increases this move's damage and the amount of time basic attack speed lasts.",
+                },
+                choice2: {
+                    name: "spark",
+                    cooldown: 10,
+                    moveType: "dash",
+                    desc: "Has the user leap at an opposing Pokémon while electrically charged, dealing damage to them. If the user uses its basic attack before reaching its target Pokémon, the user will instead leap at the closest opposing Pokémon, dealing damage to it. This move can be used three times before it goes on cooldown",
+                    upgrade: "Also restores the user's HP if the user performs a basic attack before reaching its target Pokémon.",
+                }
+            },
+            secondary: {
+                start: {
+                    name: "slash",
+                    cooldown: 8.5,
+                    moveType: "melee",
+                    desc: "Has the user pounce at an opposing Pokémon and attack with sharp claws. This move's final attack throws opposing Pokémon.",
+                },
+                choiceLv: 8,
+                choice1: {
+                    name: "discharge",
+                    cooldown: 12,
+                    moveType: "melee",
+                    desc: "Releases an electrical discharge, dealing damage to nearby opposing Pokémon and granting the user a shield when it hits. If this move hits opposing Pokémon that are paralyzed, it pulls them in toward the user once the move ends, dealing damage to them once again and leaving them unable to act.",
+                    upgrade: "Also decreases the movement speed of opposing Pokémon for a short time when this move hits.",
+                },
+                choice2: {
+                    name: "wild charge",
+                    cooldown: 12,
+                    moveType: "melee",
+                    desc: "Has the user charge in the designated direction. If this move hits an opposing Pokémon, the user unleashes a combo attack that also deals a set amount of damage to itself. If the user hits an opposing Pokémon with Volt Switch, Spark, or a boosted attack before using this move, the number of attacks in the combo is increased.",
+                    upgrade: "This move also deals damage to nearby Pokémon when it hits.",
+                }
+            },
+            unite: {
+                name: "plasma gale",
+                moveType: "sure hit",
+                desc: "Unleashes a blast of lightning, dealing damage to opposing Pokémon in the area of the effect and throwing them. This also creates a zone of plasma that increases the user's basic attack range and damage dealt while the user is inside the zone.",
+                level: 9
+            }
+        }
+    },
+    {
+        name: "cramorant",
+        range: "ranged",
+        role: "attacker",
+        numEvolutions: 1,
+        preEvolutions: [],
+        stats: {
+            offense: 4,
+            endurance: 3,
+            mobility: 3,
+            scoring: 1.5,
+            support: 1,
+        },
+        moves: {
+            basic: "Becomes a boosted attack with every fourth attack. This boosted attack spits Arrokuda or other Pokémon at opposing Pokémon and deals damage to opposing Pokémon near the target when it hits.",
+            passive: {
+                name: "gulp missile",
+                desc: "When the Pokémon uses a move, it catches some form of prey in its mouth. Afterward, when the Pokémon receives damage, it spits the prey out as a counterattack at an opposing Pokémon. The type of prey and effect differ based on the user's HP."
+            },
+            primary: {
+                start: {
+                    name: "whirlpool",
+                    cooldown: 5,
+                    moveType: "area",
+                    desc: "Creates a whirlpool that deals damage to opposing Pokémon in the area of effect. This move's area of effect slowly shrinks, but the damage dealt slowly increases. Just before the whirlpool disappears, it decreases the movement speed of opposing Pokémon in the area of effect for a short time. The user can also catch Arrokuda or other prey by entering the whirlpool.",
+                },
+                choiceLv: 6,
+                choice1: {
+                    name: "surf",
+                    cooldown: 8,
+                    moveType: "hindrance",
+                    desc: "Attacks with a wave that deals damage to opposing Pokémon. Once the wave has traveled its full distance, it returns the way it came, dealing damage to opposing Pokémon once again and pulling them back with the wave. The user can also catch Arrokuda or other prey by entering the wave.",
+                    upgrade: "When the first wave hits opposing Pokémon, it also decreases their movement speed for a short time.",
+                },
+                choice2: {
+                    name: "dive",
+                    cooldown: 1.5,
+                    moveType: "dash",
+                    desc: "Changes the designated area into a puddle and has the user dive to that area, dealing damage to opposing Pokémon and shoving them when they hit. The user also catches Arrokuda or other wild Pokémon as they emerge from the puddle. A maximum of three uses can be kept in reserve for this move.",
+                    upgrade: "Increases damage dealt by this move.",
+                }
+            },
+            secondary: {
+                start: {
+                    name: "feather dance",
+                    cooldown: 8,
+                    moveType: "hindrance",
+                    desc: "Decreases the Attack and movement speed of opposing Pokémon for a short time.",
+                },
+                choiceLv: 4,
+                choice1: {
+                    name: "hurricane",
+                    cooldown: 9,
+                    moveType: "ranged",
+                    desc: "Creates a fierce wind, dealing damage to opposing Pokémon that get caught in it and throwing them.",
+                    upgrade: "Increases the user's movement speed for a short time.",
+                },
+                choice2: {
+                    name: "air slash",
+                    cooldown: 5,
+                    moveType: "range",
+                    desc: "Has the user shoot out many blades of air while moving backward to create distance. Deals damage to opposing Pokémon in the area of effect and reduces this move's cooldown when it hits.",
+                    upgrade: "Restores the user's HP every time a blade of air hits an opposing Pokémon.",
+                }
+            },
+            unite: {
+                name: "gattling gulp missile",
+                moveType: "ranged",
+                desc: "Creates a puddle at the user's current location. The user continuously uses their mouth to grab Arrokuda from the puddle and spits them out to attack the nearest posing Pokémon. The user cannot move or use other moves while this move is in effect.",
+                level: 9
+            }
+        }
+    },
+    {
+        name: "cinderace",
+        range: "ranged",
+        role: "attacker",
+        numEvolutions: 3,
+        preEvolutions: [
+            {
+                name: "scorbunny",
+                evolveLv: 5,
+            },
+            {
+                name: "raboot",
+                evolveLv: 9
+            }
+        ],
+        stats: {
+            offense: 4,
+            endurance: 1.5,
+            mobility: 3,
+            scoring: 2.5,
+            support: 0.5,
+        },
+        moves: {
+            basic: "Becomes a boosted attack with every third attack, dealing increased damage when it hits.",
+            passive: {
+                name: "blaze",
+                desc: "When the Pokémon uses a move, its next basic attack becomes a boosted attack. When the Pokémon hits an opposing Pokémon with a basic attack or move, a cinder is placed on that opposing Pokémon. Attacking a cindered opposing Pokémon a certain number of times will cause the cinder to flare, dealing damage top the opposing Pokémon. When the Pokémon with this Ability is at half HP or less, its critical-hit rate and basic attack speed are increased for a short time."
+            },
+            primary: {
+                start: {
+                    name: "ember",
+                    cooldown: 6,
+                    moveType: "sure hit",
+                    desc: "Shoots out a small flame, dealing damage to opposing Pokémon, leaving them burned and decreasing their Attack for a short time.",
+                },
+                choiceLv: 7,
+                choice1: {
+                    name: "pyro ball",
+                    cooldown: 7,
+                    moveType: "ranged",
+                    desc: "Has the user kick a ball of flame in the designated direction, dealing damage to opposing Pokémon and leaving them burned for a short time when this move hits.",
+                    upgrade: "Reduces the cooldown of Flame Charge or Feint when this move hits.",
+                },
+                choice2: {
+                    name: "blaze kick",
+                    cooldown: 8,
+                    moveType: "sure hit",
+                    desc: "Has the user perform a fiery flying kick. This move is always a critical hit, and it shoves opposing Pokémon and leaves them burned for a short time. In addition, the user becomes immune to hindrances while using this move.",
+                    upgrade: "Increases basic attack speed for a short time when this move hits.",
+                }
+            },
+            secondary: {
+                start: {
+                    name: "low sweep",
+                    cooldown: 7.5,
+                    moveType: "dash",
+                    desc: "Has the user make a swift low sweep in the designated direction, dealing damage to any opposing Pokémon it hits.",
+                },
+                choiceLv: 8,
+                choice1: {
+                    name: "flame charge",
+                    cooldown: 6,
+                    moveType: "dash",
+                    desc: "Has the user charge forward cloaked in flame, dealing damage to any opposing Pokémon it hits.",
+                    upgrade: "The user's next boosted attack after this move ends also decreases the movement speed of opposing Pokémon for a short time when it hits.",
+                },
+                choice2: {
+                    name: "feint",
+                    cooldown: 13,
+                    moveType: "buff",
+                    desc: "Increases the user's movement speed for a short time and makes the user invincible.",
+                    upgrade: "After this move is used, basic attacks that hit opposing Pokemon restore the user's HP (up to three times).",
+                }
+            },
+            unite: {
+                name: "blazing bicycle kick",
+                moveType: "sure hit",
+                desc: "Has the user create a giant ball of flame and kick it toward the designated location. The ball releases a fierce shock wave that deals damage to opposing Pokémon in the area of effect. This Unite Move also increases the user's movement speed for a short time when it hits.",
+                level: 9
+            }
+        }
     }
 ]
