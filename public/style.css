@@ -66,6 +66,10 @@ nav {
     height: 75px;
 }
 
+.btn {
+    border-radius: .75rem;
+}
+
 .btn-primary {
     background-color: var(--orange);
     border-color: var(--orange);
@@ -378,6 +382,7 @@ tr:last-child *{
 .btn-add:hover {
     background-color: var(--purple);
     border-color: var(--darkPurple);
+    transform: scale(1.1);
     color: whitesmoke;
 }
 
