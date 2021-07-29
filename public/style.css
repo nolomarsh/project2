@@ -371,6 +371,10 @@ tr:last-child *{
     justify-content: center;
 }
 
+.userInfo .btn {
+    margin: 0 auto;
+}
+
 .btn-add {
     background-color: var(--lightPurple);
     border-color: var(--purple);
@@ -384,6 +388,12 @@ tr:last-child *{
     border-color: var(--darkPurple);
     transform: scale(1.1);
     color: whitesmoke;
+}
+
+.request {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .favesBox {

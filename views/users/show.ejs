@@ -33,7 +33,9 @@
                             </form>
                         <% } %>
                     <% } else { %>
-                        <a href="./<%=shownUser._id%>/edit">Edit Profile</a>
+                        <form>
+                            <a class="btn btn-add" href="./<%=shownUser._id%>/edit">Edit Profile</a>
+                        </form>
                     <% } %>
                 </div>
                 <div class="friendsInfo">
@@ -45,14 +47,19 @@
                 <% if (currentUser && shownUser._id.toString() === currentUser._id.toString()) { %>
                     <div class="requestInfo">
                         <h3>Friend Requests</h3>
+
                         <% for (let request of requests) { %>
-                            <a href="./<%=request._id%>"><%=request.username%></a>
-                            <form action="./accept-friend/<%=request._id%>/<%=currentUser._id%>/accept" method="post">
-                                <input type="submit" value="Accept">
-                            </form>
-                            <form action="./accept-friend/<%=request._id%>/<%=currentUser._id%>/deny" method="post">
-                                <input type="submit" value="Deny">
-                            </form>
+                            <div class="request">
+                                <a href="./<%=request._id%>"><%=request.username%></a>
+                                <div class="btnBox">
+                                    <form action="./accept-friend/<%=request._id%>/<%=currentUser._id%>/accept" method="post">
+                                        <input class="btn btn-add" type="submit" value="Accept">
+                                    </form>
+                                    <form action="./accept-friend/<%=request._id%>/<%=currentUser._id%>/deny" method="post">
+                                        <input class="btn btn-add" type="submit" value="Deny">
+                                    </form>
+                                </div>
+                            </div>
                         <% } %>
                     </div>
                 <% } %>
