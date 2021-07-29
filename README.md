@@ -1,6 +1,5 @@
-# project2
 ## UniteSquad
-UniteSquad is a fan site for the MOBA Pokemon Unite mades using Mongoose, Express, and Node. Per the assignment, the app has full CRUD functionality for user accounts stored in MongoDB Atlas.
+UniteSquad is a fan site for the MOBA Pokemon Unite made using Mongoose, Express, and Node. Per the assignment, the app has full CRUD functionality for user accounts stored in MongoDB Atlas.
 
 Users are able to view an index of all available Pokemon on the app's home page. Buttons at the top allow the user to filter the Pokemon by their party role. Clicking a card allows the user to view details about the Pokemon including their stats, evolutions, and moves.
 
