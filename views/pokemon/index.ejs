@@ -10,7 +10,7 @@
             <%-include('../partials/nav.ejs')%>
         </nav>
         <main>
-            <h1>All Pokemon</h1>
+            <h1>Full Roster</h1>
             <div class="btnBox">
                 <a class="btn btn-add" href="/pokemon">All Roles</a>
                 <% for (let role of ['attacker','speedster','all-rounder','defender','supporter']) { %>
@@ -28,10 +28,6 @@
                         </a>
                         <div class="card-body">
                             <h3 class="card-title"><%=pokemon.name%></h3>
-                            <!-- <div class="tagBox">
-                                <p class="tag-m"><%=pokemon.range%></p>
-                                <p class="tag-m"><%=pokemon.role%></p>
-                            </div> -->
                         </div>
                     </div>
                 <% } %>
