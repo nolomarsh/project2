@@ -390,6 +390,11 @@ tr:last-child *{
     color: whitesmoke;
 }
 
+.friendsInfo {
+    display: flex;
+    flex-direction: column;
+}
+
 .request {
     display: flex;
     justify-content: space-between;

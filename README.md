@@ -18,10 +18,12 @@ Setting up the system for friend requests and making it so that accepting the re
 The app was also supposed to incorporate an algorithm that would allow you to see all of the optimally-rounded-out teams that could be built from the favorite Pokemon of any five users, but that turned out to be a greater challenge than I was equipped to tackle so it was ultimately not included.
 
 ### Future Additions
-The app has several areas for addition that I might have done had I had more time, or spent less on the failed algorithm.
+The app has several areas for addition that I might have done had I had more time.
 
 Adding more stats to the user would be fairly simple, allowing users to input Switch friend codes, in-game rankings, and potentially even more specific data about wins and losses to allow the app to calculate winrates overall or with specific Pokemon.
 
 It could also be nice to add in a messaging function, to make it easier to forge connections with users you don't know personally.
 
 Even without the squad-builder algorithm, there could still be some value in creating a Squads MVC so that users could have a team page for well-established playgroups, perhaps with a bulletin-board where members could post to other members or something similar.
+
+Add mobile responsiveness.
